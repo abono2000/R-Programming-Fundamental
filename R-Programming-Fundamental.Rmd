@@ -111,7 +111,9 @@ class: center, top
 
 
 ---
-class: middle
+class: middle, inverse
+name: toc
+
 
 # Table of content
 
@@ -129,6 +131,8 @@ class: middle
 
 ]
 
+
+.footer[R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental)]
 ---
 
 background-image: url(images/lekan.jpeg)
@@ -1720,7 +1724,7 @@ A + B
 * Subtraction
 
 ```{r}
-A + B
+A - B
 ```
 
 * Multiplication
