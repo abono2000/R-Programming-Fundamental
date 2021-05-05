@@ -2,8 +2,7 @@
 title: "R Programming Fundamental"
 #author: 
 #institute: "Data Science Nigeria (DSN)"
-#date: '`r format(Sys.Date(), "%B %d, %Y")`'
-date: "April 29, 2021"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
 output:
   xaringan::moon_reader:
     yolo: true
@@ -60,7 +59,7 @@ use_webcam(width = 150, height = 150)
 # 
 # use_editable()
 # 
-# use_animate_all("fade")
+use_animate_all("fade")
 # 
 # use_broadcast()
 # 
@@ -71,22 +70,21 @@ use_extra_styles()
 ```
 class: about-me-slide, inverse, middle, center
 
-# About the trainer
+## About the trainer
 
-<img style="border-radius: 50%;" src="images/olawale.jpeg" width="150px"/>
+<img style="border-radius: 50%;" src="images/ezekiel.jpeg" width="150px"/>
 
-## Olawale Abimbola
+### Ezekiel Adebayo Ogundepo
 
-### Data Scientist, Statistician
+#### Data Scientist, Statistician
 
 .fade[Data Science Nigeria<br>Lagos, Nigeria]
 
-[`r icons::fontawesome("twitter")` @bimbolawale](https://twitter.com/bimbolawale)
-[`r icons::icon_style(icons::fontawesome("github"), scale = 1)` @olawale0254](https://github.com/olawale0254)
-
-???
 
 [`r icons::fontawesome("link")` https://bit.ly/gbganalyst](https://bit.ly/gbganalyst)
+[`r icons::fontawesome("twitter")` @gbganalyst](https://twitter.com/gbganalyst)
+[`r icons::icon_style(icons::fontawesome("github"), scale = 1)` @gbganalyst](https://github.com/gbganalyst)
+
 
 ---
 class: middle
@@ -111,7 +109,7 @@ class: center, top
 
 
 ---
-class: middle, inverse
+class: inverse
 name: toc
 
 
@@ -132,7 +130,10 @@ name: toc
 ]
 
 
-.footer[R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental)]
+.footer[
+R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental)
+]
+
 ---
 
 background-image: url(images/lekan.jpeg)
@@ -1783,8 +1784,8 @@ demographic_data <- data.frame(age = c(16, 18, 13, 22, 18), gender = c("Female",
 
 demographic_data
 ```
-```{r, echo=FALSE}
 
+```{r, echo=FALSE}
 demographic_data <- data.frame(age = c(16, 18, 13, 22, 18), gender = c("Female", "Female", "Male",   "Male",  "Female"),   
  bank_account = c("No", "Yes", "No", "Yes", "Yes"))
 
@@ -1864,9 +1865,14 @@ women_data
 ]
 ]
 
+
 ---
+layout: true
 
 ### Quick, have a look at your dataset
+---
+
+---
 
 .w-100.lh-copy[
 Working with large datasets is common in data science. When you work with (extremely) large datasets and dataframes, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only part of the entire dataset.
@@ -1882,7 +1888,7 @@ Working with large datasets is common in data science. When you work with (extre
 
 --
 
-Both `head()` and `tail()` print    a top line called `header`, which contains the names of the different variables in your data set.
+Both `head()` and `tail()` print a top line called `header`, which contains the names of the different variables in your data set.
 
 --
 
@@ -1890,7 +1896,7 @@ Another method that is often used to get a rapid overview of your dataset is the
 
 --
 
-**3.** `str()`: Shows you the structure of your dataset 
+**3.** `str()`: shows you the structure of your dataset 
 
 The structure of a dataframe tells you :
   
@@ -1900,38 +1906,71 @@ The structure of a dataframe tells you :
 4. The first observations
 
 ---
-## Note
 
 .w-100.lh-copy[
 Applying the `str()` function will often be the first thing that you do when receiving a new dataset or dataframe. It is a great way to get more insight in your dataset before diving into the real analysis.
 ]
+
 --
+
+**4.** `names()`: prints each column name in a  dataframe. 
+
+--
+
+**5.** `nrow()`: returns the number of rows present in a `dataframe`.
+
+--
+
+**6.** `ncol()`: returns the number of columns present in a `dataframe`.
+
+--
+
+**7.** `dim()`: returns the number of rows and columns in a dataframe.
+
+--
+
+.w-100.lh-copy[
+**8.** `View()`: invoke a spreadsheet-style data viewer on a dataframe. 
+]
+
+--
+
+.w-100.lh-copy[
+That is, it opens a new tab in the RStudio to display the entire dataframe in a spreadsheet-style.
+]
+
+---
+layout: false
 
 ### Example
 
 Consider the following vectors:
 
-```{r, echo=T}
-height <- floor(rnorm(n=120,mean = 135, sd=12))
+```{r}
+height <- floor(rnorm(n=120, mean = 135, sd=12))
 
 weight <- ceiling(rnorm(n=120, mean = 55, sd=9))
+
+gender <- sample(c("Male", "Female"), 120, replace = TRUE)
 ```
 
 --
 
-Create a `dataframe` for it.
-
+Create a `dataframe` for the data.
 --
 
-```{r, echo=T}
-data <- data.frame(height, weight)
+```{r}
+data <- data.frame(height, weight, gender)
 ```
 
 ---
+layout: true
 
 ### Examine the dataframe
 
-```{r, echo=T}
+---
+
+```{r}
 head(data, 5)
 
 tail(data,3)
@@ -1941,6 +1980,27 @@ str(data)
 
 ---
 
+```{r}
+names(data)
+
+nrow(data)
+
+ncol(data)
+
+dim(data)
+```
+---
+
+```{r, eval=FALSE}
+View(data)
+```
+```{r, out.height= "70%", out.width = "90%", echo=FALSE}
+knitr::include_graphics("images/view.png")
+```
+
+
+---
+layout: false
 ## Using built-in datasets in R
 
 .w-100.lh-copy[
@@ -2010,7 +2070,7 @@ You can create a list by using the function `list()`. Arguments (`args`) to the 
 
 --
 
-### Example
+### Example 1
 
 ```{r}
 my_list <- list(age = 19, sex = "male", pass = TRUE)
@@ -2024,10 +2084,19 @@ The object `my_list` is formed by three components. One is a `numeric` with the 
 ]
 
 ---
+layout: true
+
+## Extracting individual component in a list
+
+---
+
+--
 
 .w-100.lh-copy[
-To show the contents of a list you simply type its name as any other object:
+To show the contents of a list you simply type its name as any other object in R:
 ]
+
+--
 
 ```{r}
 my_list 
@@ -2035,16 +2104,13 @@ my_list
 
 --
 
-### Extracting individual elements or components of a list
-
-
 .w-100.lh-copy[
 You can extract individual element in a list by using double square brackets `[[]]` e.g. `my_list[[1]]`, `my_list[[2]]`, etc.
 ]
 
 ---
-
-## Examples
+layout: false
+### Examples
 
 ```{r}
 my_list[[1]]
@@ -2083,7 +2149,7 @@ class(my_list[1])
 ```
 ---
 
-# Important note
+### Important note
 
 .w-100.lh-copy[
 While extracting individual element/component of a list, it is important to note that R will throw an error indicating **subscript out of bounds** if index does not exist in the named list i.e.
@@ -2095,6 +2161,70 @@ my_list[[4]]
 
 my_list[4]
 ```
+
+---
+
+### Example 2
+
+Consider the following list:
+```{r}
+list_example <- list(
+  age = c(18, 21, 33, 25, 19), unit_mat = matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2), 
+  iris_data = iris)
+```
+--
+
+The components in this list are `vector`, `matrix`, and `data.frame`.
+
+--
+
+Another way of extracting component in the `list` is by using a dollar sign, `$`. 
+--
+For example:
+
+--
+
+```{r}
+list_example$age
+
+list_example$unit_mat
+```
+---
+
+### Exercise
+
+```{r}
+list_example <- list(
+age = c(18, 21, 33, 25, 19), 
+
+unit_mat = matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2), 
+
+iris_data = iris
+)
+
+```
+How would you extract the component `iris_data` from the `list_example`?
+
+--
+
+.can-edit[
+
+]
+
+--
+
+```{r, echo=FALSE}
+countdown::countdown(minutes = 1, seconds = 0)
+```
+
+---
+class: center, middle
+
+## Summary
+
+.w-100.lh-copy[
+This tutorial introduced you to `R` and `RStudio`. You also learnt various atomic data types and different data structure available in R programming.
+]
 
 ---
 class: center, middle, inverse
