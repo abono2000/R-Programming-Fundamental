@@ -2073,14 +2073,14 @@ You can create a list by using the function `list()`. Arguments (`args`) to the 
 ### Example 1
 
 ```{r}
-my_list <- list(age = 19, sex = "male", pass = TRUE)
+my_list <- list(age = 19, gender = "male", pass = TRUE)
 ```
 
 --
 
 .w-100.lh-copy[
 The object `my_list` is formed by three components. One is a `numeric` with the name `age`, the second is a `character` with the name
-`sex`, and the third is `logical` with name `pass`.
+`gender`, and the third is `logical` with name `pass`.
 ]
 
 ---
