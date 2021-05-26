@@ -3,7 +3,7 @@
   <head>
     <title>R Programming Fundamental</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2021-05-06" />
+    <meta name="date" content="2021-05-26" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -12,7 +12,7 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x80005e6ffb14422904c9e6298f691f0","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f2e0ff6c791643519200d3d8dc9249f1","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
 class: center, middle, inverse, title-slide
 
 # R Programming Fundamental
-### May 06, 2021
+### May 26, 2021
 
 ---
 
@@ -117,7 +117,7 @@ name: toc
 
 - [R as a Calculator](#cal)
 
-- [Variable Assignment in R](#var)
+- [Atomic Data Type and Variable Assignment in R](#var)
 
 - [Basic Data Structure in R](#basic)
 
@@ -783,6 +783,12 @@ We can compare two or more values by using comparison operators. These types of 
 ]
 
 ---
+class: middle, center, inverse
+name: var
+
+## Atomic Data Type and Variable Assignment in R
+
+---
 # Classes of objects in R
 
 .w-100.lh-copy[
@@ -858,12 +864,6 @@ class(FALSE)
 ```
 [1] "logical"
 ```
-
----
-class: center, middle, inverse
-name: var
-
-# Variable assignment 
 
 ---
 
@@ -1101,7 +1101,7 @@ smile_face &lt;- "FALSE"
 
 
 
-<div class="countdown" id="timer_60940703" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae557d" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">00</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">42</span></code>
 </div>
 
@@ -1242,7 +1242,7 @@ class(smiling_face_new)
 
 ---
 
-### The NA Result
+### The `NA` Result
 
 .w-100.lh-copy[
 If R cannot convert something, it will return an `NA` value. This is its way of saying that it tried to convert the value, but it couldn't find anything that would logically match with the conversion. The following scenarios will display the `NA` result:
@@ -1298,8 +1298,6 @@ as.numeric(`smiling_face`)
 [1] 1
 ```
 ]
----
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 ---
 
 class: center, middle, inverse
@@ -1380,12 +1378,12 @@ length(month)
 
 ---
 
-# Naming a vector
+## Naming a vector
 .w-100.lh-copy[
 As a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is essential. You can give  a name to the elements of a vector with the `names()` function
 ]
 
-## Example
+### Example
 
 
 ```r
@@ -1423,6 +1421,7 @@ total_weight
 ```
  [1] 115 107 130 120 109 121 130 108 116 104
 ```
+--
 
 #### Exercise
 
@@ -1448,7 +1447,7 @@ How can you correct it?
 .w-100.lh-copy[
 To select elements of a vector (and later matrices, data frames), you will use square brackets `[ ]` and between the square brackets, you indicate the index of elements to select.
 
-R index starts with `\(1\)`, for example
+R index starts with `\(1\)`, for example:
 ]
 
 &lt;table&gt;
@@ -1515,7 +1514,7 @@ How can we access `Monday` and `Thursday` from the vector, `week_day`?
  
 ]
 
-<div class="countdown" id="timer_60940705" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae55c2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1548,7 +1547,7 @@ Data relating to the marks of 13 students in the Introduction to R quiz are givi
  
 ]
 
-<div class="countdown" id="timer_60940915" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae56cd" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1563,7 +1562,7 @@ marks &lt;- c(10, 15, 10, 9, 18, 16, 14, 12, 16, 13, 15, 20, 17)
 marks[marks &gt; 13]
 ```
 
-<div class="countdown" id="timer_60940939" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae5535" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1595,9 +1594,11 @@ b
  [1] 10  9  8  7  6  5  4  3  2  1
 ```
 ---
+layout: true
 
-## `seq()` function
+### Data simulation using `seq()` function
 
+---
 The `seq()` function generate  sequence of number.
 
 `seq(from, to, by, length.out)`
@@ -1628,7 +1629,7 @@ To get help on `seq()` function, use `?seq`
 
 ---
 
-### Examples
+#### Examples
 
 
 ```r
@@ -1665,9 +1666,10 @@ seq(7, 1, -0.1)
 [39] 3.2 3.1 3.0 2.9 2.8 2.7 2.6 2.5 2.4 2.3 2.2 2.1 2.0 1.9 1.8 1.7 1.6 1.5 1.4
 [58] 1.3 1.2 1.1 1.0
 ```
---
-
+---
+.w-100.lh-copy[
 If you have a sequence of number and you don't know the last element, say you just know the start of the sequence and the length of the sequence, e.g.
+]
 
 --
 
@@ -1682,10 +1684,12 @@ seq(5, by = 2, length = 50)
 [39]  81  83  85  87  89  91  93  95  97  99 101 103
 ```
 ---
+layout: true
 
-## The `rep()` function
+### Data simulation using the `rep()` function
 
-Repeat elements for a certain number of time
+---
+The `rep()` function repeat elements for a certain number of time
 
 `rep(x, times = 1, length.out = NA, each = 1)`
 
@@ -1699,7 +1703,7 @@ Repeat elements for a certain number of time
 
 --
 
-### Examples
+#### Example 1
 
 
 ```r
@@ -1712,9 +1716,7 @@ rep(5, 10) # Repeat 5 in 10 times
 
 ---
 
-### The `rep()` function
-
---
+#### More examples
 
 
 ```r
@@ -1757,7 +1759,7 @@ rep(1:4, each = 3) # repeat each element in 3 times
 
 ---
 
-## Think about it
+#### Think about these:
 
 
 ```r
@@ -1768,13 +1770,16 @@ rep(1:4, 1:4)
 rep(1:4, c(4, 1, 8, 2))
 ```
 
-<div class="countdown" id="timer_60940827" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae55e4" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
+layout: true
 
-## `sample()` function
+### Data simulation using `sample()` function 
 
+---
+.w-100.lh-copy[
 The `sample()` function allows you to draw random samples of elements from a vector.
 
 `sample(x, size, replace = FALSE, prob = NULL)`
@@ -1786,14 +1791,11 @@ The `sample()` function allows you to draw random samples of elements from a vec
 `replace`: Should sampling be done with replacement (`TRUE`/`FALSE`)
 
 `prob`: A vector of probabilities of the same length as `x` indicating how likely each outcome in `x` is. If you don’t specify the prob argument, all outcomes will be equally likely.
+]
 
 ---
 
-## `sample()` function 
-
-### Examples
-
---
+### Example 
 
 .w-100.lh-copy[
 Randomly pick four fruits from the list of fruits in Apple, Banana, Cherry, Orange, Pineapples, Grape, and Pawpaw.
@@ -1809,10 +1811,62 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Cherry"     "Banana"     "Orange"     "Pineapples"
+[1] "Cherry"     "Pawpaw"     "Pineapples" "Banana"    
+```
+--
+
+Since data generated by using `sample()` function is purely randomized, 
+--
+if you run the same `sample(x = fruit, size= 4)` again, a different data would be generated.
+
+
+```r
+sample(x = fruit, size = 4)
 ```
 
+```
+[1] "Banana"     "Pineapples" "Cherry"     "Grape"     
+```
+---
+
+.w-100.lh-copy[
+The `set.seed()` function helps us to generate the same data when you specify any integer in it.
+]
+
 --
+
+#### Example 1
+
+
+```r
+set.seed(121)
+
+fruit &lt;- c("Apple", "Banana", "Cherry", "Orange", "Pineapple", "Grape", "Pawpaw", "Mango", "Carrot")
+
+sample(fruit, size = 5)
+```
+
+```
+[1] "Orange" "Carrot" "Mango"  "Pawpaw" "Apple" 
+```
+--
+
+#### Example 2
+
+
+```r
+set.seed(121)
+
+fruit &lt;- c("Apple", "Banana", "Cherry", "Orange", "Pineapple", "Grape", "Pawpaw", "Mango", "Carrot")
+
+sample(fruit, size = 5)
+```
+
+```
+[1] "Orange" "Carrot" "Mango"  "Pawpaw" "Apple" 
+```
+
+### Example 4
 
 Draw 20 samples from the integers 1 to 10 with replacement.
 
@@ -1824,15 +1878,13 @@ sample(x = 1:10, size = 20, replace = TRUE)
 ```
 
 ```
- [1]  4  3  4  6  4  3 10  9  4  7  8  7  3  8  3  4  8  2  8  8
+ [1]  1  3  7  5  1  8 10  2  1  2  4  5 10  6  8  7  2  9  6  8
 ```
 
 ---
 
-## `sample()` function 
-
 .w-100.lh-copy[
-Let’s simulate `10` flips of a biased coin, were the probably of getting a Head (`H`) is `0.7` and the probability of a Tail(`T`) is `0.3`.
+Let’s simulate `10` flips of a biased coin, where the probably of getting a Head (`H`) is `0.7` and the probability of a Tail(`T`) is `0.3`.
 ]
 
 --
@@ -1848,14 +1900,16 @@ sample(
 ```
 
 ```
- [1] "T" "H" "H" "T" "H" "H" "H" "H" "H" "H"
+ [1] "H" "H" "H" "H" "T" "T" "T" "T" "H" "H"
 ```
 
 --
 
 ### Exercise
 
+.w-100.lh-copy[
 Suppose you are drawing coins from a treasure chest. There are 100 coins in this chest: 20 gold, 30 silver, and 50 bronze.
+]
 
 Use R to draw 10 random coins from the chest.
 
@@ -1863,14 +1917,15 @@ Use R to draw 10 random coins from the chest.
 
 ]
 
-<div class="countdown" id="timer_609409dc" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae5674" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
+layout: true
 
-## Statistical distribution- Simulating data
+## Statistical distribution- Data simulation
 
---
+---
 
 Statistics has so many distributions. Some are discrete while some are continuous. 
 
@@ -1919,11 +1974,9 @@ Poisson distribution is a probability distribution that can be used to show how 
 
 `lambda`: the mean of the distribution
 
---
+---
 
 ### Example
-
---
 
 Draw 15 samples from a Poisson distribution with `lambda = 45`.
 
@@ -1931,12 +1984,23 @@ Draw 15 samples from a Poisson distribution with `lambda = 45`.
 
 
 ```r
-rpois(n = 15, lambda = 45)
+poisson_data &lt;- rpois(n = 40, lambda = 45)
+
+poisson_data
 ```
 
 ```
- [1] 37 37 49 56 44 51 56 44 45 55 41 48 43 38 50
+ [1] 49 39 50 45 57 37 49 47 46 48 57 45 42 58 45 37 49 45 48 44 40 47 43 46 49
+[26] 41 41 51 63 44 52 54 40 51 35 34 49 40 52 53
 ```
+---
+
+
+```r
+hist(poisson_data)
+```
+
+![](slide-script_files/figure-html/unnamed-chunk-106-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1957,11 +2021,9 @@ The Normal also known as Gaussian distribution is one of the most important dist
 
 `sd`:	The standard deviation of the distribution
 
---
+---
 
 ### Example
-
---
 
 Draw 10 samples from a Normal distribution with `mean = 30`, `sd = 5`
 
@@ -1969,15 +2031,38 @@ Draw 10 samples from a Normal distribution with `mean = 30`, `sd = 5`
 
 
 ```r
-rnorm(n = 10, mean = 30, sd = 5)
+normal_data &lt;- rnorm(n = 100, mean = 30, sd = 5)
+
+normal_data
 ```
 
 ```
- [1] 31.14849 29.60670 32.50838 31.45819 28.81188 24.89578 32.78627 30.73113
- [9] 29.49408 35.06952
+  [1] 31.12392 32.84103 37.11626 25.26722 26.66344 23.92486 29.41394 26.54702
+  [9] 27.39451 27.69197 33.99195 31.97516 30.18051 32.56419 27.72963 30.69346
+ [17] 22.99874 26.72993 34.74840 28.58783 28.00036 31.47279 27.77975 30.24608
+ [25] 28.79174 31.02570 29.18763 34.12832 33.31553 27.88033 33.49833 33.34358
+ [33] 35.66535 26.32012 27.08142 33.99368 29.49659 31.21729 35.60035 32.61113
+ [41] 26.70982 35.85759 26.95216 31.82667 20.82465 35.04950 30.63998 25.41393
+ [49] 32.87921 28.21368 27.09357 32.62903 38.95762 30.19875 33.55443 33.09275
+ [57] 22.61249 24.80197 38.41342 23.78437 33.67899 31.33060 39.54455 33.05498
+ [65] 24.33590 30.94284 32.01166 31.95707 25.26981 30.99774 27.81430 28.42590
+ [73] 33.47253 32.14223 29.86815 33.69430 24.50674 36.55951 39.83468 30.32734
+ [81] 26.58312 24.51322 36.32394 21.80924 25.16731 17.40023 35.00213 27.11599
+ [89] 34.44281 22.59664 29.44673 37.49703 21.01652 29.11484 25.00444 28.53699
+ [97] 25.76137 24.35463 32.86758 35.94290
 ```
+
 ---
 
+
+```r
+hist(normal_data)
+```
+
+![](slide-script_files/figure-html/unnamed-chunk-108-1.png)&lt;!-- --&gt;
+
+---
+layout: false
 ## Examination on vector
 
 .panelset[
@@ -2004,25 +2089,58 @@ rnorm(n = 10, mean = 30, sd = 5)
    
    Generate 50 observations for both `height` and `weight`.
   
-  <div class="countdown" id="timer_60940960" style="right:0;bottom:0;" data-warnwhen="60">
+  <div class="countdown" id="timer_60ae5749" style="right:0;bottom:0;" data-warnwhen="60">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
   ]
 
-.panel[.panel-name[Solution]
+.panel[.panel-name[Solution 1-2]
 
-### Solution 1
+#### Solution 1
 
+
+```r
+number &lt;- 1:50
+```
+#### Solution 2
 
 
 ```r
 x &lt;- c(2, 3, 4, 2, 4, 5, 3, 5, 3, 5)
+
+sum(x)
+mean(x)
+var(x)
+barplot(table(x), col = "purple")
 ```
+]
+.panel[.panel-name[Solution 3-4]
 
+#### Solution 3
+
+
+```r
+x &lt;- 2
+y &lt;- 3
+z &lt;- 6
+
+(x + y)^3
+
+x / y
+```
+#### Solution 4
+
+
+```r
+height &lt;- rnorm(50, 60, 12)
+
+weight &lt;- rnorm(50, 90, 14)
+```
 ]
 
 ]
+
 ---
 class: center, middle, inverse
 name: matrix
@@ -2033,24 +2151,26 @@ name: matrix
 ---
 # Matrices
 
+.w-100.lh-copy[
 In R, a matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns.
 
-Since we are only working with rows and columns, a matrix is called two dimensional array.
+Since we are only working with rows and columns, a matrix is called a two dimensional array.
 
 You can construct a matrix in R by using `matrix()` function.
+]
 
 --
 
 `matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE)`
 
 --
-
-* The first argument is the collection of elements that `#rstats` will arrange into the rows and columns of the matrix. Here, we use `1:9` which is a shortcut for `c(1, 2, ..., 9)`. 
+.w-100.lh-copy[
+* The first argument is the collection of elements that `#rstats` will arrange into the rows and columns of the matrix. For example, `c(1, 2, 3, 4, 5, 6, 7, 8, 9)` or its shortcut, `1:9`. 
 
 * The argument `nrow` indicates the number of rows while `ncol` is the number of columns in the matrix
 
 * The argument `byrow` indicates that the matrix is filled row-wise. If we want the matrix to be filled column-wise, we just set `byrow = FALSE`.
-
+]
 ---
 
 ### Example
@@ -2086,9 +2206,8 @@ Create the matrix `A` with R:
 
 ]
 
---
-  
-<div class="countdown" id="timer_6094072e" style="right:0;bottom:0;" data-warnwhen="0">
+
+<div class="countdown" id="timer_60ae56dd" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2129,7 +2248,11 @@ B
 ```
 
 ---
-## Matrices selection
+layout: true
+
+## Matrices slicing
+
+---
 
 To select elements in a matrix we use square brackets `[ , ]`, between the square brackets, you indicate the position of the row and column in which the elements to select are.
 
@@ -2178,11 +2301,56 @@ A[3, 2]
 
 ---
 
+Consider the following matrix:
+
+`$$A = \begin{pmatrix}
+1&amp;-2&amp; 5\\
+-3&amp;9&amp;4\\
+5&amp;0&amp;6
+\end{pmatrix}$$`
+
+--
+
+How would you select the following matrices from A?
+
+--
+
+.pull-left[
+`$$B = \begin{pmatrix}
+1&amp;-2\\
+-3&amp;9
+\end{pmatrix}$$`
+]
+
+
+
+.pull-right[
+`$$C = \begin{pmatrix}
+1&amp; 5\\
+5&amp;6
+\end{pmatrix}$$`
+
+]
+
+.can-edit[
+
+]
+
+
+<div class="countdown" id="timer_60ae576a" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+---
+layout: false
+
 ## Arithmetic Operation in Matrices
 
 .w-100.lh-copy[
 We can perform all the arithmetic operations on matrices. Consider the following matrices
 ]
+
 .pull-left[
 `$$A = \begin{pmatrix}
 1&amp;-2&amp; 5\\
@@ -2218,10 +2386,30 @@ B &lt;- matrix(c(2, 4, 6, 8, 10, 12, 14, 16, 18), nrow = 3, ncol = 3, byrow = FA
 ```
 
 ---
+layout: true 
 
 .pull-left[
+`$$A = \begin{pmatrix}
+1&amp;-2&amp; 5\\
+-3&amp;9&amp;4\\
+5&amp;0&amp;6
+\end{pmatrix}$$`
+]
 
-* Addition
+
+.pull-right[
+
+`$$B = \begin{pmatrix}
+2&amp;-8&amp; 14\\
+4&amp;10&amp;16\\
+6&amp;12&amp;18
+\end{pmatrix}$$`
+
+]
+
+---
+
+### Addition
 
 
 ```r
@@ -2235,7 +2423,7 @@ A + B
 [3,]   11   12   24
 ```
 
-* Subtraction
+### Subtraction
 
 
 ```r
@@ -2249,7 +2437,10 @@ A - B
 [3,]   -1  -12  -12
 ```
 
-* Multiplication
+---
+
+### Multiplication
+
 
 ```r
 A %*% B
@@ -2261,13 +2452,9 @@ A %*% B
 [2,]   54  114  174
 [3,]   46  112  178
 ```
-]
 
---
 
-.pull-right[
-
-- Transpose
+### Transpose
 
 
 ```r
@@ -2281,8 +2468,18 @@ t(A)
 [3,]    5    4    6
 ```
 
-- Determinant
+---
 
+### Determinant
+
+
+```r
+det(A)
+```
+
+```
+[1] -247
+```
 
 ```r
 det(B)
@@ -2292,7 +2489,8 @@ det(B)
 [1] 0
 ```
 
-- Inverse
+### Inverse
+
 
 ```r
 solve(A)
@@ -2304,12 +2502,9 @@ solve(A)
 [2,] -0.1538462  0.07692308  0.07692308
 [3,]  0.1821862  0.04048583 -0.01214575
 ```
-
-]
-
-
 ---
 class: center, middle, inverse
+layout: false
 name: df
 
 # Dataframe
@@ -2326,18 +2521,20 @@ A dataframe has the variables of a data set as `columns` and the observations as
 
 ### Example 1
 
+.w-100.lh-copy[
+Create a dataframe with columns name `age`, `gender`, and `bank account`.
+]
+
 
 ```r
-# Make a dataframe with columns named age and gender
-
 demographic_data &lt;- data.frame(
-  age = c(16, 18, 13, 22, 18), gender = c("Female", "Female", "Male", "Male", "Female"),
+  age = c(16, 18, 13, 22, 18),
+  gender = c("Female", "Female", "Male", "Male", "Female"),
   bank_account = c("No", "Yes", "No", "Yes", "Yes")
 )
 
 demographic_data
 ```
-
 
 ```
   age gender bank_account
@@ -2347,6 +2544,7 @@ demographic_data
 4  22   Male          Yes
 5  18 Female          Yes
 ```
+
 --
 
 .w-100.lh-copy[
@@ -2354,16 +2552,17 @@ The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels.
 ]
 
 ---
+
 ### Example 2
+
+.w-100.lh-copy[
+Create a dataframe with columns `states`, `confirmed cases`, `recovered cases` and `death cases`.]
 
 
 ```r
-# Create a dataframe with columns states, confirmed cases, recovered cases and death cases
-
 states &lt;- c("Lagos", "FCT", "Plateau", "Kaduna", "Rivers", "Oyo")
 
 confirmed_cases &lt;- c(58033, 19753, 9030, 8998, 7018, 6838)
-
 
 recovered_cases &lt;- c(56990, 19084, 8967, 8905, 6875, 6506)
 
@@ -2398,14 +2597,16 @@ Create a dataframe for the following data:
 
 ```
   gender height weight
-1   Male     58    115
-2 Female     59    117
-3 Female     60    120
-4   Male     61    123
-5 Female     62    126
+1   Male     58     68
+2   &lt;NA&gt;     59    115
+3 Female     NA    117
+4 Female     60    120
+5   Male     61    123
+6 Female     62    126
+7   &lt;NA&gt;     NA    100
 ```
 
-<div class="countdown" id="timer_609407e6" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae5765" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 .can-edit[
@@ -2418,24 +2619,26 @@ Create a dataframe for the following data:
 
 
 ```r
-gender &lt;- c("Male", "Female", "Female", "Male", "Female")
+gender &lt;- c("Male", NA, "Female", "Female", "Male", "Female", NA)
 
-height &lt;- c(58, 59, 60, 61, 62)
+height &lt;- c(58, 59, NA, 60, 61, 62, NA)
 
-weight &lt;- c(115, 117, 120, 123, 126)
+weight &lt;- c(68, 115, 117, 120, 123, 126, 100)
 
-women_data &lt;- data.frame(gender, height, weight) # The output is ?
+obese_data &lt;- data.frame(gender, height, weight)
 
-women_data
+obese_data
 ```
 
 ```
   gender height weight
-1   Male     58    115
-2 Female     59    117
-3 Female     60    120
-4   Male     61    123
-5 Female     62    126
+1   Male     58     68
+2   &lt;NA&gt;     59    115
+3 Female     NA    117
+4 Female     60    120
+5   Male     61    123
+6 Female     62    126
+7   &lt;NA&gt;     NA    100
 ```
 ]
 ]
@@ -2514,6 +2717,12 @@ Applying the `str()` function will often be the first thing that you do when rec
 That is, it opens a new tab in the RStudio to display the entire dataframe in a spreadsheet-style.
 ]
 
+--
+.w-100.lh-copy[
+**9.** `summary()`: returns summary or descriptive statistics of all columns in a dataframe
+]
+
+
 ---
 layout: false
 
@@ -2523,11 +2732,16 @@ Consider the following vectors:
 
 
 ```r
-height &lt;- floor(rnorm(n = 120, mean = 135, sd = 12))
+set.seed(2021)
+
+gender &lt;- sample(c("Male", "Female"), 120, replace = TRUE)
+
+
+height &lt;- floor(rnorm(n = 120, mean = 3, sd = 0.5))
 
 weight &lt;- ceiling(rnorm(n = 120, mean = 55, sd = 9))
 
-gender &lt;- sample(c("Male", "Female"), 120, replace = TRUE)
+bmi &lt;- weight / height^2
 ```
 
 --
@@ -2537,7 +2751,7 @@ Create a `dataframe` for the data.
 
 
 ```r
-data &lt;- data.frame(height, weight, gender)
+medical_data &lt;- data.frame(gender, height, weight, bmi)
 ```
 
 ---
@@ -2549,53 +2763,54 @@ layout: true
 
 
 ```r
-head(data, 5)
+head(medical_data, 5)
 ```
 
 ```
-  height weight gender
-1    130     55 Female
-2    139     57   Male
-3    139     68 Female
-4    160     56   Male
-5    130     53   Male
-```
-
-```r
-tail(data, 3)
-```
-
-```
-    height weight gender
-118    132     49   Male
-119    144     57 Female
-120    139     55 Female
+  gender height weight       bmi
+1   Male      3     47  5.222222
+2 Female      2     46 11.500000
+3 Female      3     58  6.444444
+4 Female      2     64 16.000000
+5   Male      3     62  6.888889
 ```
 
 ```r
-str(data)
+tail(medical_data, 3)
 ```
 
 ```
-'data.frame':	120 obs. of  3 variables:
- $ height: num  130 139 139 160 130 128 115 127 141 130 ...
- $ weight: num  55 57 68 56 53 67 56 59 51 61 ...
- $ gender: Factor w/ 2 levels "Female","Male": 1 2 1 2 2 2 2 2 1 1 ...
+    gender height weight       bmi
+118   Male      3     49  5.444444
+119   Male      2     51 12.750000
+120 Female      3     51  5.666667
+```
+
+```r
+str(medical_data)
+```
+
+```
+'data.frame':	120 obs. of  4 variables:
+ $ gender: Factor w/ 2 levels "Female","Male": 2 1 1 1 2 1 1 1 1 1 ...
+ $ height: num  3 2 3 2 3 2 3 3 2 2 ...
+ $ weight: num  47 46 58 64 62 53 69 58 58 57 ...
+ $ bmi   : num  5.22 11.5 6.44 16 6.89 ...
 ```
 
 ---
 
 
 ```r
-names(data)
+names(medical_data)
 ```
 
 ```
-[1] "height" "weight" "gender"
+[1] "gender" "height" "weight" "bmi"   
 ```
 
 ```r
-nrow(data)
+nrow(medical_data)
 ```
 
 ```
@@ -2603,31 +2818,73 @@ nrow(data)
 ```
 
 ```r
-ncol(data)
+ncol(medical_data)
 ```
 
 ```
-[1] 3
+[1] 4
 ```
 
 ```r
-dim(data)
+dim(medical_data)
 ```
 
 ```
-[1] 120   3
+[1] 120   4
 ```
 ---
 
 
 ```r
-View(data)
+View(medical_data)
 ```
-&lt;img src="images/view.png" width="90%" height="70%" /&gt;
-
-
+&lt;img src="images/view.png" width="60%" height="95%" /&gt;
 ---
 layout: false
+
+### Descriptive statistics
+
+#### Example 1
+
+
+```r
+summary(medical_data)
+```
+
+```
+    gender       height          weight           bmi        
+ Female:61   Min.   :1.000   Min.   :37.00   Min.   : 2.375  
+ Male  :59   1st Qu.:2.000   1st Qu.:50.00   1st Qu.: 6.333  
+             Median :2.000   Median :56.00   Median :11.000  
+             Mean   :2.433   Mean   :55.58   Mean   :12.384  
+             3rd Qu.:3.000   3rd Qu.:62.00   3rd Qu.:14.312  
+             Max.   :4.000   Max.   :78.00   Max.   :63.000  
+```
+--
+
+
+```r
+summary(iris)
+```
+
+```
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                
+```
+
+---
 ## Using built-in datasets in R
 
 .w-100.lh-copy[
@@ -2644,7 +2901,9 @@ data()
 ```
 --
 
+.w-100.lh-copy[
 You can also select a dataset by using `datasets::dataset_name`. In this case, I chose airquality.
+]
 
 
 ```r
@@ -2716,11 +2975,569 @@ tail(iris_data, 4)
 ```
 
 ---
+layout: true
+# Dataframe subsetting
+
+---
+.w-100.lh-copy[
+Every column in a dataframe has a name and if you can recall, we can print the names attribute of a dataframe (i.e. `iris`) by using:
+]
+
+--
+
+
+```r
+names(iris)
+```
+
+```
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     
+```
+
+--
+
+.w-100.lh-copy[
+and to access a specific column in a dataframe by name, you will use the `$` operator in the form of `df$colname`, where `df` is the name of the dataframe and `colname` is the name of the column you are interested in. This operation will then return the column you want as a vector.
+
+Please note that `$` only extracts by name and has a little less typing.                                                      
+]
+
+---
+
+### Example 1
+
+Use the `$` operator to get a vector of `Sepal.Length` from the `iris` dataframe:
+
+--
+
+
+```r
+iris$Sepal.Length
+```
+
+```
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+```
+
+---
+
+### Example 2
+
+Use the `$` operator to get a vector of `Species` from the `iris` dataframe:
+
+--
+
+
+```r
+iris$Species
+```
+
+```
+  [1] setosa     setosa     setosa     setosa     setosa     setosa    
+  [7] setosa     setosa     setosa     setosa     setosa     setosa    
+ [13] setosa     setosa     setosa     setosa     setosa     setosa    
+ [19] setosa     setosa     setosa     setosa     setosa     setosa    
+ [25] setosa     setosa     setosa     setosa     setosa     setosa    
+ [31] setosa     setosa     setosa     setosa     setosa     setosa    
+ [37] setosa     setosa     setosa     setosa     setosa     setosa    
+ [43] setosa     setosa     setosa     setosa     setosa     setosa    
+ [49] setosa     setosa     versicolor versicolor versicolor versicolor
+ [55] versicolor versicolor versicolor versicolor versicolor versicolor
+ [61] versicolor versicolor versicolor versicolor versicolor versicolor
+ [67] versicolor versicolor versicolor versicolor versicolor versicolor
+ [73] versicolor versicolor versicolor versicolor versicolor versicolor
+ [79] versicolor versicolor versicolor versicolor versicolor versicolor
+ [85] versicolor versicolor versicolor versicolor versicolor versicolor
+ [91] versicolor versicolor versicolor versicolor versicolor versicolor
+ [97] versicolor versicolor versicolor versicolor virginica  virginica 
+[103] virginica  virginica  virginica  virginica  virginica  virginica 
+[109] virginica  virginica  virginica  virginica  virginica  virginica 
+[115] virginica  virginica  virginica  virginica  virginica  virginica 
+[121] virginica  virginica  virginica  virginica  virginica  virginica 
+[127] virginica  virginica  virginica  virginica  virginica  virginica 
+[133] virginica  virginica  virginica  virginica  virginica  virginica 
+[139] virginica  virginica  virginica  virginica  virginica  virginica 
+[145] virginica  virginica  virginica  virginica  virginica  virginica 
+Levels: setosa versicolor virginica
+```
+
+---
+.w-100.lh-copy[
+Because the `$` operator returns a vector, you can easily calculate descriptive statistics on columns of a dataframe by applying your favorite vector function (like `mean()`, `sd()`, or `table()`) to a column using `$`. 
+]
+
+--
+
+.w-100.lh-copy[
+Let’s calculate the mean of `Sepal.Length` with `mean()` and the frequency of each `Species` with `table()`in the iris dataframe:
+]
+
+
+```r
+mean(iris$Sepal.Length)
+```
+
+```
+[1] 5.843333
+```
+
+```r
+table(iris$Species)
+```
+
+```
+
+    setosa versicolor  virginica 
+        50         50         50 
+```
+
+---
+layout: true
+
+## Slicing dataframe with [ , ]
+
+---
+
+.w-100.lh-copy[
+Just like a matrix, you can access specific data in a dataframe by using square brackets `[ , ]`. To do this, we use the notation `data[rows, cols]`, where rows and columns are vectors of integers.
+]
+
+### Example
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Dataframe slicing &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Interpretation &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; data[1,  ] &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; first row and all columns &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; data[ , 2] &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; all rows and second column &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; data[c(1, 3, 5),  2] &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; row 1, 3, 5 and column 2 only &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; data[1:3, c(1, 3)] &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; first three rows and columns 1 and 3 only &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; data or data[ ,  ] &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; all rows and all columns &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+
+---
+
+Consider the `airquality` built-in dataset in R.
+
+- Examine the `airquality` dataset 
+
+- Select the first three columns of the dataset
+
+- Select rows `1-3` and columns `1` and `3` of the dataset
+
+- Select rows `1` through `5`, and column `1` of the dataset
+
+- Select the `1st` row (and all columns) of the dataset.
+
+- Select the first `6` rows and all columns of the dataset
+
+---
+layout: false
+
+### Examine the dataset
+
+
+```r
+airquality &lt;- airquality
+
+head(airquality)
+```
+
+```
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+```
+
+```r
+names(airquality)
+```
+
+```
+[1] "Ozone"   "Solar.R" "Wind"    "Temp"    "Month"   "Day"    
+```
+
+```r
+str(airquality)
+```
+
+```
+'data.frame':	153 obs. of  6 variables:
+ $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
+ $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
+ $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+ $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
+ $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
+ $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...
+```
+
+---
+### Select the first three columns of the dataset
+
+
+```r
+airquality[, 1:3]
+```
+
+```
+    Ozone Solar.R Wind
+1      41     190  7.4
+2      36     118  8.0
+3      12     149 12.6
+4      18     313 11.5
+5      NA      NA 14.3
+6      28      NA 14.9
+7      23     299  8.6
+8      19      99 13.8
+9       8      19 20.1
+10     NA     194  8.6
+11      7      NA  6.9
+12     16     256  9.7
+13     11     290  9.2
+14     14     274 10.9
+15     18      65 13.2
+16     14     334 11.5
+17     34     307 12.0
+18      6      78 18.4
+19     30     322 11.5
+20     11      44  9.7
+21      1       8  9.7
+22     11     320 16.6
+23      4      25  9.7
+24     32      92 12.0
+25     NA      66 16.6
+26     NA     266 14.9
+27     NA      NA  8.0
+28     23      13 12.0
+29     45     252 14.9
+30    115     223  5.7
+31     37     279  7.4
+32     NA     286  8.6
+33     NA     287  9.7
+34     NA     242 16.1
+35     NA     186  9.2
+36     NA     220  8.6
+37     NA     264 14.3
+38     29     127  9.7
+39     NA     273  6.9
+40     71     291 13.8
+41     39     323 11.5
+42     NA     259 10.9
+43     NA     250  9.2
+44     23     148  8.0
+45     NA     332 13.8
+46     NA     322 11.5
+47     21     191 14.9
+48     37     284 20.7
+49     20      37  9.2
+50     12     120 11.5
+51     13     137 10.3
+52     NA     150  6.3
+53     NA      59  1.7
+54     NA      91  4.6
+55     NA     250  6.3
+56     NA     135  8.0
+57     NA     127  8.0
+58     NA      47 10.3
+59     NA      98 11.5
+60     NA      31 14.9
+61     NA     138  8.0
+62    135     269  4.1
+63     49     248  9.2
+64     32     236  9.2
+65     NA     101 10.9
+66     64     175  4.6
+67     40     314 10.9
+68     77     276  5.1
+69     97     267  6.3
+70     97     272  5.7
+71     85     175  7.4
+72     NA     139  8.6
+73     10     264 14.3
+74     27     175 14.9
+75     NA     291 14.9
+76      7      48 14.3
+77     48     260  6.9
+78     35     274 10.3
+79     61     285  6.3
+80     79     187  5.1
+81     63     220 11.5
+82     16       7  6.9
+83     NA     258  9.7
+84     NA     295 11.5
+85     80     294  8.6
+86    108     223  8.0
+87     20      81  8.6
+88     52      82 12.0
+89     82     213  7.4
+90     50     275  7.4
+91     64     253  7.4
+92     59     254  9.2
+93     39      83  6.9
+94      9      24 13.8
+95     16      77  7.4
+96     78      NA  6.9
+97     35      NA  7.4
+98     66      NA  4.6
+99    122     255  4.0
+100    89     229 10.3
+101   110     207  8.0
+102    NA     222  8.6
+103    NA     137 11.5
+104    44     192 11.5
+105    28     273 11.5
+106    65     157  9.7
+107    NA      64 11.5
+108    22      71 10.3
+109    59      51  6.3
+110    23     115  7.4
+111    31     244 10.9
+112    44     190 10.3
+113    21     259 15.5
+114     9      36 14.3
+115    NA     255 12.6
+116    45     212  9.7
+117   168     238  3.4
+118    73     215  8.0
+119    NA     153  5.7
+120    76     203  9.7
+121   118     225  2.3
+122    84     237  6.3
+123    85     188  6.3
+124    96     167  6.9
+125    78     197  5.1
+126    73     183  2.8
+127    91     189  4.6
+128    47      95  7.4
+129    32      92 15.5
+130    20     252 10.9
+131    23     220 10.3
+132    21     230 10.9
+133    24     259  9.7
+134    44     236 14.9
+135    21     259 15.5
+136    28     238  6.3
+137     9      24 10.9
+138    13     112 11.5
+139    46     237  6.9
+140    18     224 13.8
+141    13      27 10.3
+142    24     238 10.3
+143    16     201  8.0
+144    13     238 12.6
+145    23      14  9.2
+146    36     139 10.3
+147     7      49 10.3
+148    14      20 16.6
+149    30     193  6.9
+150    NA     145 13.2
+151    14     191 14.3
+152    18     131  8.0
+153    20     223 11.5
+```
+
+---
+### Select rows 1-3 and columns 1 and 3
+
+
+```r
+airquality[1:3, c(1, 3)]
+```
+
+```
+  Ozone Wind
+1    41  7.4
+2    36  8.0
+3    12 12.6
+```
+
+--
+
+### Select rows 1 through 5, and column 1
+
+
+```r
+airquality[1:5, 1]
+```
+
+```
+[1] 41 36 12 18 NA
+```
+--
+
+or 
+
+
+```r
+airquality$Ozone[1:5]
+```
+
+```
+[1] 41 36 12 18 NA
+```
+
+
+---
+### Select the first row and all columns of the dataset
+
+
+```r
+airquality[1, ]
+```
+
+```
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+```
+--
+
+### Select the first 6 rows and all columns of the dataset
+
+
+```r
+airquality[1:6, ]
+```
+
+```
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+```
+---
+
+### Select the first 6 rows and all columns of the dataset
+
+We can also do this by using `head()`
+
+
+```r
+head(airquality, 6)
+```
+
+```
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+```
+
+---
+layout: true
+## Missing values in a dataframe
+
+---
+.w-100.lh-copy[
+R programming indicates any missing value in a dataframe with `NA` and to check whether a dataframe has a missing value in any of its columns, we use the command `anyNA()`.
+]
+
+--
+
+### Example 1
+
+
+```r
+anyNA(airquality)
+```
+
+```
+[1] TRUE
+```
+--
+
+### Example 2
+
+
+```r
+anyNA(iris)
+```
+
+```
+[1] FALSE
+```
+
+---
+
+.w-100.lh-copy[
+To get the total number of missing values in a dataframe, we use the command `sum(is.na(dataframe))`
+where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the dataframe.]
+
+--
+
+#### Example 1
+
+
+```r
+sum(is.na(airquality))
+```
+
+```
+[1] 44
+```
+--
+
+#### Example 2
+
+
+```r
+sum(is.na(iris))
+```
+
+```
+[1] 0
+```
+--
+
+The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the dataframe. Please make sure you install `inspectdf` package.
+
+---
 class: center, middle, inverse
 name: list
+layout: false
 
 # List
 
+---
+background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 ---
 
 # List
@@ -2948,15 +3765,13 @@ list_example &lt;- list(
 ```
 How would you extract the component `iris_data` from the `list_example`?
 
---
 
 .can-edit[
 
 ]
 
---
 
-<div class="countdown" id="timer_60940aa9" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60ae54c6" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
