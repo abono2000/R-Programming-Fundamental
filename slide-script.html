@@ -12,7 +12,7 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xf1bb8bc364e426493711a9410ef9a60","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xddd96da9ee54e00852f34bd0e9cd7ec","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -654,7 +654,10 @@ R makes use of the **#** sign to add comments. Adding comment to your code is a 
 3.	It is good for documentation purpose.
 
 --
+
 Comments are not run as R code, so they will not influence your result and R ignores any anything that has **#** sign.
+
+--
 
 #### Examples
 
@@ -1133,7 +1136,7 @@ smile_face &lt;- "FALSE"
 
 
 
-<div class="countdown" id="timer_60b77795" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b783f0" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">00</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">42</span></code>
 </div>
 
@@ -1338,14 +1341,23 @@ name: basic
 # Basic data structure in R
 
 ---
+class: middle 
 
 # Basic data structure or types
 
+--
+
 1. [Vector :  A collection of elements of the same class](#vector)
+
+--
 
 1. [Matrix : All columns must uniformly contain only one data type](#matrix)
 
+--
+
 1. [Data frame : The columns can contain different classes](#df)
+
+--
 
 1. [List : Can hold object of different classes and length](#list)
 
@@ -1360,7 +1372,7 @@ name: vector
 ## A vector
 
 .w-100.lh-copy[
-A vector is a one-dimensional array that can hold data type. In `R`, you can create a vector with the combine function `c()`. You place the vector elements separate by a comma between the parenthesis.
+A vector is a one-dimensional array that can hold data type. In `R`, you can create a vector by using combine or concatenate function, `c()`. When using `c()`, you will place a comma in between the objects (vector elements) you want to combine.
 ]
 
 --
@@ -1571,7 +1583,7 @@ How can we access `Monday` and `Thursday` from the vector, `week_day`?
  
 ]
 
-<div class="countdown" id="timer_60b774ef" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b783af" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1604,7 +1616,7 @@ Data relating to the marks of 13 students in the Introduction to R quiz are givi
  
 ]
 
-<div class="countdown" id="timer_60b776e3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b783cc" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1619,7 +1631,7 @@ marks &lt;- c(10, 15, 10, 9, 18, 16, 14, 12, 16, 13, 15, 20, 17)
 marks[marks &gt; 13]
 ```
 
-<div class="countdown" id="timer_60b7758b" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b78484" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1827,7 +1839,7 @@ rep(1:4, 1:4)
 rep(1:4, c(4, 1, 8, 2))
 ```
 
-<div class="countdown" id="timer_60b77713" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b78181" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -1868,7 +1880,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Orange" "Cherry" "Banana" "Pawpaw"
+[1] "Banana" "Pawpaw" "Grape"  "Cherry"
 ```
 --
 
@@ -1882,7 +1894,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Orange"     "Pineapples" "Grape"      "Apple"     
+[1] "Banana" "Grape"  "Orange" "Cherry"
 ```
 ---
 
@@ -1974,7 +1986,7 @@ Use R to draw 10 random coins from the chest.
 
 ]
 
-<div class="countdown" id="timer_60b777a5" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b7827c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -2146,7 +2158,7 @@ layout: false
    
    Generate 50 observations for both `height` and `weight`.
   
-  <div class="countdown" id="timer_60b775f6" style="right:0;bottom:0;" data-warnwhen="60">
+  <div class="countdown" id="timer_60b7836d" style="right:0;bottom:0;" data-warnwhen="60">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2264,7 +2276,7 @@ Create the matrix `A` with R:
 ]
 
 
-<div class="countdown" id="timer_60b77757" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b782b7" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2394,7 +2406,7 @@ How would you select the following matrices from A?
 ]
 
 
-<div class="countdown" id="timer_60b775f0" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b78465" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2663,7 +2675,7 @@ Create a data frame for the following data:
 7   &lt;NA&gt;     NA    100
 ```
 
-<div class="countdown" id="timer_60b774c7" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b781ed" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 .can-edit[
@@ -3996,7 +4008,7 @@ How would you extract the component `iris_data` from the `list_example`?
 ]
 
 
-<div class="countdown" id="timer_60b7775c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b782af" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -4006,7 +4018,7 @@ class: center, middle, inverse
 name: function
 layout: false
 
-# Writing function in R
+# Write your own function in R
 
 &lt;img src="images/fun.png" width="60%" height="55%" /&gt;
 ---
@@ -4336,7 +4348,7 @@ Use your function to convert the following `Celsius` to `Fahrenheit`:
 -	120
 
 
-<div class="countdown" id="timer_60b775bc" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b7837c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 

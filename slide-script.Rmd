@@ -546,7 +546,10 @@ R makes use of the **#** sign to add comments. Adding comment to your code is a 
 3.	It is good for documentation purpose.
 
 --
+
 Comments are not run as R code, so they will not influence your result and R ignores any anything that has **#** sign.
+
+--
 
 #### Examples
 
@@ -1005,14 +1008,23 @@ name: basic
 # Basic data structure in R
 
 ---
+class: middle 
 
 # Basic data structure or types
 
+--
+
 1. [Vector :  A collection of elements of the same class](#vector)
+
+--
 
 1. [Matrix : All columns must uniformly contain only one data type](#matrix)
 
+--
+
 1. [Data frame : The columns can contain different classes](#df)
+
+--
 
 1. [List : Can hold object of different classes and length](#list)
 
@@ -1027,7 +1039,7 @@ name: vector
 ## A vector
 
 .w-100.lh-copy[
-A vector is a one-dimensional array that can hold data type. In `R`, you can create a vector with the combine function `c()`. You place the vector elements separate by a comma between the parenthesis.
+A vector is a one-dimensional array that can hold data type. In `R`, you can create a vector by using combine or concatenate function, `c()`. When using `c()`, you will place a comma in between the objects (vector elements) you want to combine.
 ]
 
 --
@@ -2679,7 +2691,7 @@ class: center, middle, inverse
 name: function
 layout: false
 
-# Writing function in R
+# Write your own function in R
 
 ```{r, echo=FALSE, out.height= "55%", out.width= "60%"}
 include_graphics("images/fun.png")
