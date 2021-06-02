@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>R Programming Fundamental</title>
+    <title>R Programming Fundamentals</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2021-05-26" />
+    <meta name="date" content="2021-06-02" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -12,7 +12,7 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f2e0ff6c791643519200d3d8dc9249f1","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xf1bb8bc364e426493711a9410ef9a60","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -50,23 +50,26 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# R Programming Fundamental
-### May 26, 2021
+
+
+
+
+
+
+class: title-page, center, middle
+
+## R Programming Fundamentals
+
+### June 02, 2021
 
 ---
-
-
-
-
-
 
 class: about-me-slide, inverse, middle, center
 
 ## About the trainer
 
-&lt;img style="border-radius: 50%;" src="images/ezekiel.jpeg" width="150px"/&gt;
+&lt;img style="border-radius: 80%;" src="images/passport_new.jpg" width="180px"/&gt;
 
 ### Ezekiel Adebayo Ogundepo
 
@@ -94,7 +97,7 @@ Goal:
 
 ---
 
-background-image: url(images/relax1.jpg)
+background-image: url(images/relax.jpg)
 background-size: cover
 background-position: 50% 50%
 class: center, top
@@ -103,7 +106,7 @@ class: center, top
 
 
 ---
-class: inverse
+class: inverse, middle
 name: toc
 
 
@@ -121,11 +124,12 @@ name: toc
 
 - [Basic Data Structure in R](#basic)
 
+- [Write your own function in R](#function)
 ]
 
 
 .footer[
-R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental)
+R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental).
 ]
 
 ---
@@ -265,9 +269,8 @@ Data science is an exciting discipline that allows you to turn raw data into und
 ---
 class: middle
 
-# Materials for learning R
+# R learning R Materials
 	
-
 You can learn R through the following useful selected materials:
 
 --
@@ -286,6 +289,9 @@ You can learn R through the following useful selected materials:
 
 - [Big Book of R](https://www.bigbookofr.com/)
 
+--
+
+- [Posts you might have missed!](https://postsyoumighthavemissed.com/search/)
 
 ---
 
@@ -306,6 +312,8 @@ class: center, middle, inverse
 name: cal
 
 # R as a calculator
+
+&lt;img src="images/calculator.png" width="60%" height="55%" /&gt;
 
 ---
 
@@ -810,6 +818,8 @@ We use `class()` function to check or determine the type of any object in R.
 
 ### Examples
 
+.pull-left[
+
 
 ```r
 class(2)
@@ -846,6 +856,9 @@ class("I am from Abuja")
 ```
 [1] "character"
 ```
+]
+
+.pull-right[
 
 
 ```r
@@ -865,6 +878,25 @@ class(FALSE)
 [1] "logical"
 ```
 
+
+```r
+factor(c("Male", "Female", "Female", "Male", "Female"))
+```
+
+```
+[1] Male   Female Female Male   Female
+Levels: Female Male
+```
+
+```r
+class(factor(c("Male", "Female", "Female", "Male", "Female")))
+```
+
+```
+[1] "factor"
+```
+
+]
 ---
 
 ### Variable assignment
@@ -1101,7 +1133,7 @@ smile_face &lt;- "FALSE"
 
 
 
-<div class="countdown" id="timer_60ae557d" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b77795" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">00</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">42</span></code>
 </div>
 
@@ -1313,7 +1345,7 @@ name: basic
 
 1. [Matrix : All columns must uniformly contain only one data type](#matrix)
 
-1. [data frame : The columns can contain different classes](#df)
+1. [Data frame : The columns can contain different classes](#df)
 
 1. [List : Can hold object of different classes and length](#list)
 
@@ -1325,28 +1357,39 @@ name: vector
 # Vector
 
 ---
-# Create a vector
+## A vector
 
 .w-100.lh-copy[
-Vector is a one-dimensional array that can hold data type. In `R`, you can create a vector with the combine function `c()`. You place the vector elements separate by a comma between the parenthesis.
+A vector is a one-dimensional array that can hold data type. In `R`, you can create a vector with the combine function `c()`. You place the vector elements separate by a comma between the parenthesis.
 ]
 
-### For example
+--
+
+### Examples
 
 
 ```r
 covid_confirmed &lt;- c(31, 30, 37, 25, 33, 34, 26, 32, 23, 45)
 ```
+--
 
 
 ```r
 month &lt;- c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October")
 ```
+--
 
-### Note
 
-Adding a space behind the commas in the `c()` function improves the readability of your code.
+```r
+gender &lt;- factor(c("Male", "Female", "Female", "Male", "Female"))
+```
 
+--
+#### Note
+
+.w-100.lh-copy[
+Adding a space after every comma in the `c()` function improves the readability of your code.
+]
 
 ---
 ## Length of a vector
@@ -1376,6 +1419,16 @@ length(month)
 ```
 
 
+```r
+gender &lt;- factor(c("Male", "Female", "Female", "Male", "Female"))
+
+length(gender)
+```
+
+```
+[1] 5
+```
+
 ---
 
 ## Naming a vector
@@ -1401,9 +1454,9 @@ sales_amount
 
 ---
 
-### Arithmetic with vectors
+### Arithmetic operations with vectors
 
-If you add two vectors together, R sum it element-wise
+If you add two vectors together, R sum it element-wise.
 
 #### Example 
 
@@ -1412,7 +1465,10 @@ If you add two vectors together, R sum it element-wise
 egg_weight1 &lt;- c(59, 56, 61, 68, 52, 53, 69, 54, 57, 51)
 
 egg_weight2 &lt;- c(56, 51, 69, 52, 57, 68, 61, 54, 59, 53)
+```
 
+
+```r
 total_weight &lt;- egg_weight1 + egg_weight2
 
 total_weight
@@ -1421,6 +1477,7 @@ total_weight
 ```
  [1] 115 107 130 120 109 121 130 108 116 104
 ```
+
 --
 
 #### Exercise
@@ -1514,7 +1571,7 @@ How can we access `Monday` and `Thursday` from the vector, `week_day`?
  
 ]
 
-<div class="countdown" id="timer_60ae55c2" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b774ef" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1547,7 +1604,7 @@ Data relating to the marks of 13 students in the Introduction to R quiz are givi
  
 ]
 
-<div class="countdown" id="timer_60ae56cd" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b776e3" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1562,7 +1619,7 @@ marks &lt;- c(10, 15, 10, 9, 18, 16, 14, 12, 16, 13, 15, 20, 17)
 marks[marks &gt; 13]
 ```
 
-<div class="countdown" id="timer_60ae5535" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b7758b" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1770,7 +1827,7 @@ rep(1:4, 1:4)
 rep(1:4, c(4, 1, 8, 2))
 ```
 
-<div class="countdown" id="timer_60ae55e4" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b77713" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -1811,7 +1868,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Cherry"     "Pawpaw"     "Pineapples" "Banana"    
+[1] "Orange" "Cherry" "Banana" "Pawpaw"
 ```
 --
 
@@ -1825,7 +1882,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Banana"     "Pineapples" "Cherry"     "Grape"     
+[1] "Orange"     "Pineapples" "Grape"      "Apple"     
 ```
 ---
 
@@ -1917,7 +1974,7 @@ Use R to draw 10 random coins from the chest.
 
 ]
 
-<div class="countdown" id="timer_60ae5674" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b777a5" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -2000,7 +2057,7 @@ poisson_data
 hist(poisson_data)
 ```
 
-![](slide-script_files/figure-html/unnamed-chunk-106-1.png)&lt;!-- --&gt;
+![](slide-script_files/figure-html/unnamed-chunk-111-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -2059,7 +2116,7 @@ normal_data
 hist(normal_data)
 ```
 
-![](slide-script_files/figure-html/unnamed-chunk-108-1.png)&lt;!-- --&gt;
+![](slide-script_files/figure-html/unnamed-chunk-113-1.png)&lt;!-- --&gt;
 
 ---
 layout: false
@@ -2089,7 +2146,7 @@ layout: false
    
    Generate 50 observations for both `height` and `weight`.
   
-  <div class="countdown" id="timer_60ae5749" style="right:0;bottom:0;" data-warnwhen="60">
+  <div class="countdown" id="timer_60b775f6" style="right:0;bottom:0;" data-warnwhen="60">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2207,7 +2264,7 @@ Create the matrix `A` with R:
 ]
 
 
-<div class="countdown" id="timer_60ae56dd" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b77757" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2337,7 +2394,7 @@ How would you select the following matrices from A?
 ]
 
 
-<div class="countdown" id="timer_60ae576a" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b775f0" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2507,22 +2564,22 @@ class: center, middle, inverse
 layout: false
 name: df
 
-# Dataframe
+# Data frame
 
 ---
-# Dataframe
+# Data frame
 
 .w-100.lh-copy[
-Dataframe is another way to put data in a table! Unlike matrices, dataframe can have different types of data!
+A data frame is another way to put data in a table! Unlike matrices, data frame can have different types of data!
 
-A dataframe has the variables of a data set as `columns` and the observations as `rows`. This will be a familiar concept for those coming from different statistical software packages such as `Excel`, `SPSS`, or `STATA`. We create a dataframe by using `data.frame()` function.
+A data frame has the variables of a data set as `columns` and the observations as `rows`. This will be a familiar concept for those coming from different statistical software packages such as `Excel`, `SPSS`, or `STATA`. We create a data frame by using `data.frame()` function.
 ]
 ---
 
 ### Example 1
 
 .w-100.lh-copy[
-Create a dataframe with columns name `age`, `gender`, and `bank account`.
+Create a data frame with columns name `age`, `gender`, and `bank account`.
 ]
 
 
@@ -2548,7 +2605,7 @@ demographic_data
 --
 
 .w-100.lh-copy[
-The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels. Also note that each **column** in a dataframe is a **vector**!
+The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels. Also note that each **column** in a data frame is a **vector**!
 ]
 
 ---
@@ -2556,7 +2613,7 @@ The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels.
 ### Example 2
 
 .w-100.lh-copy[
-Create a dataframe with columns `states`, `confirmed cases`, `recovered cases` and `death cases`.]
+Create a data frame with columns `states`, `confirmed cases`, `recovered cases` and `death cases`.]
 
 
 ```r
@@ -2586,13 +2643,13 @@ covid_19
 
 
 ---
-# Creating dataframe
+# Creating data frame
 
 .panelset[
 
 .panel[.panel-name[Exercise]
 
-Create a dataframe for the following data:
+Create a data frame for the following data:
 
 
 ```
@@ -2606,7 +2663,7 @@ Create a dataframe for the following data:
 7   &lt;NA&gt;     NA    100
 ```
 
-<div class="countdown" id="timer_60ae5765" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b774c7" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 .can-edit[
@@ -2653,12 +2710,12 @@ layout: true
 ---
 
 .w-100.lh-copy[
-Working with large datasets is common in data science. When you work with (extremely) large datasets and dataframes, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only part of the entire dataset.
+Working with large datasets is common in data science. When you work with (extremely) large datasets and data frames, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only part of the entire dataset.
 ]
 
 --
 
-**1.** `head()`: enables you to show the first observations of a dataframe.
+**1.** `head()`: enables you to show the first observations of a data frame.
 
 --
 
@@ -2676,7 +2733,7 @@ Another method that is often used to get a rapid overview of your dataset is the
 
 **3.** `str()`: shows you the structure of your dataset 
 
-The structure of a dataframe tells you :
+The structure of a data frame tells you :
   
 1. The total number of observations
 2. The total number of variables
@@ -2686,40 +2743,40 @@ The structure of a dataframe tells you :
 ---
 
 .w-100.lh-copy[
-Applying the `str()` function will often be the first thing that you do when receiving a new dataset or dataframe. It is a great way to get more insight in your dataset before diving into the real analysis.
+Applying the `str()` function will often be the first thing that you do when receiving a new dataset or data frame. It is a great way to get more insight in your dataset before diving into the real analysis.
 ]
 
 --
 
-**4.** `names()`: prints each column name in a  dataframe. 
+**4.** `names()`: prints each column name in a  data frame. 
 
 --
 
-**5.** `nrow()`: returns the number of rows present in a `dataframe`.
+**5.** `nrow()`: returns the number of rows present in a `data frame`.
 
 --
 
-**6.** `ncol()`: returns the number of columns present in a `dataframe`.
+**6.** `ncol()`: returns the number of columns present in a `data frame`.
 
 --
 
-**7.** `dim()`: returns the number of rows and columns in a dataframe.
+**7.** `dim()`: returns the number of rows and columns in a data frame.
 
 --
 
 .w-100.lh-copy[
-**8.** `View()`: invoke a spreadsheet-style data viewer on a dataframe. 
+**8.** `View()`: invoke a spreadsheet-style data viewer on a data frame. 
 ]
 
 --
 
 .w-100.lh-copy[
-That is, it opens a new tab in the RStudio to display the entire dataframe in a spreadsheet-style.
+That is, it opens a new tab in the RStudio to display the entire data frame in a spreadsheet-style.
 ]
 
 --
 .w-100.lh-copy[
-**9.** `summary()`: returns summary or descriptive statistics of all columns in a dataframe
+**9.** `summary()`: returns summary or descriptive statistics of all columns in a data frame
 ]
 
 
@@ -2746,7 +2803,7 @@ bmi &lt;- weight / height^2
 
 --
 
-Create a `dataframe` for the data.
+Create a `data frame` for the data.
 --
 
 
@@ -2757,7 +2814,7 @@ medical_data &lt;- data.frame(gender, height, weight, bmi)
 ---
 layout: true
 
-### Examine the dataframe
+### Examine the data frame
 
 ---
 
@@ -2839,6 +2896,8 @@ dim(medical_data)
 View(medical_data)
 ```
 &lt;img src="images/view.png" width="60%" height="95%" /&gt;
+---
+background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 ---
 layout: false
 
@@ -2976,11 +3035,11 @@ tail(iris_data, 4)
 
 ---
 layout: true
-# Dataframe subsetting
+# Subsetting data frame
 
 ---
 .w-100.lh-copy[
-Every column in a dataframe has a name and if you can recall, we can print the names attribute of a dataframe (i.e. `iris`) by using:
+Every column in a data frame has a name and if you can recall, we can print the names attribute of a data frame (i.e. `iris`) by using:
 ]
 
 --
@@ -2997,7 +3056,7 @@ names(iris)
 --
 
 .w-100.lh-copy[
-and to access a specific column in a dataframe by name, you will use the `$` operator in the form of `df$colname`, where `df` is the name of the dataframe and `colname` is the name of the column you are interested in. This operation will then return the column you want as a vector.
+and to access a specific column in a data frame by name, you will use the `$` operator in the form of `df$colname`, where `df` is the name of the data frame and `colname` is the name of the column you are interested in. This operation will then return the column you want as a vector.
 
 Please note that `$` only extracts by name and has a little less typing.                                                      
 ]
@@ -3006,7 +3065,7 @@ Please note that `$` only extracts by name and has a little less typing.
 
 ### Example 1
 
-Use the `$` operator to get a vector of `Sepal.Length` from the `iris` dataframe:
+Use the `$` operator to get a vector of `Sepal.Length` from the `iris` data frame:
 
 --
 
@@ -3031,7 +3090,7 @@ iris$Sepal.Length
 
 ### Example 2
 
-Use the `$` operator to get a vector of `Species` from the `iris` dataframe:
+Use the `$` operator to get a vector of `Species` from the `iris` data frame:
 
 --
 
@@ -3071,13 +3130,13 @@ Levels: setosa versicolor virginica
 
 ---
 .w-100.lh-copy[
-Because the `$` operator returns a vector, you can easily calculate descriptive statistics on columns of a dataframe by applying your favorite vector function (like `mean()`, `sd()`, or `table()`) to a column using `$`. 
+Because the `$` operator returns a vector, you can easily calculate descriptive statistics on columns of a data frame by applying your favorite vector function (like `mean()`, `sd()`, or `table()`) to a column using `$`. 
 ]
 
 --
 
 .w-100.lh-copy[
-Let’s calculate the mean of `Sepal.Length` with `mean()` and the frequency of each `Species` with `table()`in the iris dataframe:
+Let’s calculate the mean of `Sepal.Length` with `mean()` and the frequency of each `Species` with `table()`in the iris data frame:
 ]
 
 
@@ -3102,12 +3161,12 @@ table(iris$Species)
 ---
 layout: true
 
-## Slicing dataframe with [ , ]
+## Slicing data frame with [ , ]
 
 ---
 
 .w-100.lh-copy[
-Just like a matrix, you can access specific data in a dataframe by using square brackets `[ , ]`. To do this, we use the notation `data[rows, cols]`, where rows and columns are vectors of integers.
+Just like a matrix, you can access specific data in a data frame by using square brackets `[ , ]`. To do this, we use the notation `data[rows, cols]`, where rows and columns are vectors of integers.
 ]
 
 ### Example
@@ -3115,7 +3174,7 @@ Just like a matrix, you can access specific data in a dataframe by using square 
 &lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Dataframe slicing &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; data frame slicing &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Interpretation &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
@@ -3209,7 +3268,171 @@ str(airquality)
 
 
 ```r
-airquality[, 1:3]
+airquality[, 1:3] # Extract columns by position
+```
+
+```
+    Ozone Solar.R Wind
+1      41     190  7.4
+2      36     118  8.0
+3      12     149 12.6
+4      18     313 11.5
+5      NA      NA 14.3
+6      28      NA 14.9
+7      23     299  8.6
+8      19      99 13.8
+9       8      19 20.1
+10     NA     194  8.6
+11      7      NA  6.9
+12     16     256  9.7
+13     11     290  9.2
+14     14     274 10.9
+15     18      65 13.2
+16     14     334 11.5
+17     34     307 12.0
+18      6      78 18.4
+19     30     322 11.5
+20     11      44  9.7
+21      1       8  9.7
+22     11     320 16.6
+23      4      25  9.7
+24     32      92 12.0
+25     NA      66 16.6
+26     NA     266 14.9
+27     NA      NA  8.0
+28     23      13 12.0
+29     45     252 14.9
+30    115     223  5.7
+31     37     279  7.4
+32     NA     286  8.6
+33     NA     287  9.7
+34     NA     242 16.1
+35     NA     186  9.2
+36     NA     220  8.6
+37     NA     264 14.3
+38     29     127  9.7
+39     NA     273  6.9
+40     71     291 13.8
+41     39     323 11.5
+42     NA     259 10.9
+43     NA     250  9.2
+44     23     148  8.0
+45     NA     332 13.8
+46     NA     322 11.5
+47     21     191 14.9
+48     37     284 20.7
+49     20      37  9.2
+50     12     120 11.5
+51     13     137 10.3
+52     NA     150  6.3
+53     NA      59  1.7
+54     NA      91  4.6
+55     NA     250  6.3
+56     NA     135  8.0
+57     NA     127  8.0
+58     NA      47 10.3
+59     NA      98 11.5
+60     NA      31 14.9
+61     NA     138  8.0
+62    135     269  4.1
+63     49     248  9.2
+64     32     236  9.2
+65     NA     101 10.9
+66     64     175  4.6
+67     40     314 10.9
+68     77     276  5.1
+69     97     267  6.3
+70     97     272  5.7
+71     85     175  7.4
+72     NA     139  8.6
+73     10     264 14.3
+74     27     175 14.9
+75     NA     291 14.9
+76      7      48 14.3
+77     48     260  6.9
+78     35     274 10.3
+79     61     285  6.3
+80     79     187  5.1
+81     63     220 11.5
+82     16       7  6.9
+83     NA     258  9.7
+84     NA     295 11.5
+85     80     294  8.6
+86    108     223  8.0
+87     20      81  8.6
+88     52      82 12.0
+89     82     213  7.4
+90     50     275  7.4
+91     64     253  7.4
+92     59     254  9.2
+93     39      83  6.9
+94      9      24 13.8
+95     16      77  7.4
+96     78      NA  6.9
+97     35      NA  7.4
+98     66      NA  4.6
+99    122     255  4.0
+100    89     229 10.3
+101   110     207  8.0
+102    NA     222  8.6
+103    NA     137 11.5
+104    44     192 11.5
+105    28     273 11.5
+106    65     157  9.7
+107    NA      64 11.5
+108    22      71 10.3
+109    59      51  6.3
+110    23     115  7.4
+111    31     244 10.9
+112    44     190 10.3
+113    21     259 15.5
+114     9      36 14.3
+115    NA     255 12.6
+116    45     212  9.7
+117   168     238  3.4
+118    73     215  8.0
+119    NA     153  5.7
+120    76     203  9.7
+121   118     225  2.3
+122    84     237  6.3
+123    85     188  6.3
+124    96     167  6.9
+125    78     197  5.1
+126    73     183  2.8
+127    91     189  4.6
+128    47      95  7.4
+129    32      92 15.5
+130    20     252 10.9
+131    23     220 10.3
+132    21     230 10.9
+133    24     259  9.7
+134    44     236 14.9
+135    21     259 15.5
+136    28     238  6.3
+137     9      24 10.9
+138    13     112 11.5
+139    46     237  6.9
+140    18     224 13.8
+141    13      27 10.3
+142    24     238 10.3
+143    16     201  8.0
+144    13     238 12.6
+145    23      14  9.2
+146    36     139 10.3
+147     7      49 10.3
+148    14      20 16.6
+149    30     193  6.9
+150    NA     145 13.2
+151    14     191 14.3
+152    18     131  8.0
+153    20     223 11.5
+```
+---
+### Select the first three columns of the dataset
+
+
+```r
+airquality[, c("Ozone", "Solar.R", "Wind")]
 ```
 
 ```
@@ -3369,6 +3592,10 @@ airquality[, 1:3]
 153    20     223 11.5
 ```
 
+```r
+# Extract columns by name
+```
+
 ---
 ### Select rows 1-3 and columns 1 and 3
 
@@ -3463,11 +3690,11 @@ head(airquality, 6)
 
 ---
 layout: true
-## Missing values in a dataframe
+## Missing values in a data frame
 
 ---
 .w-100.lh-copy[
-R programming indicates any missing value in a dataframe with `NA` and to check whether a dataframe has a missing value in any of its columns, we use the command `anyNA()`.
+R programming indicates any missing value in a data frame with `NA` and to check whether a data frame has a missing value in any of its columns, we use the command `anyNA()`.
 ]
 
 --
@@ -3498,8 +3725,8 @@ anyNA(iris)
 ---
 
 .w-100.lh-copy[
-To get the total number of missing values in a dataframe, we use the command `sum(is.na(dataframe))`
-where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the dataframe.]
+To get the total number of missing values in a data frame, we use the command `sum(is.na(dataframe))`
+where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the data frame.]
 
 --
 
@@ -3527,7 +3754,7 @@ sum(is.na(iris))
 ```
 --
 
-The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the dataframe. Please make sure you install `inspectdf` package.
+The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the data frame. Please make sure you install `inspectdf` package.
 
 ---
 class: center, middle, inverse
@@ -3537,13 +3764,11 @@ layout: false
 # List
 
 ---
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
----
 
 # List
 
 .w-100.lh-copy[
-A list in **R** allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be `matrix`, `vector`, `dataframe`, even `other lists`. It is not even required that these objects are related to each other in any way.
+A list in **R** allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be `matrices`, `vectors`, `dataframes`, even `other lists`. It is not even required that these objects are related to each other in any way.
 You can create a list by using the function `list()`. Arguments (`args`) to the list function are the list components. Remember, these components can be `vector`, `matrices`, `data.frame`, or `other list`.
 ]
 
@@ -3771,19 +3996,381 @@ How would you extract the component `iris_data` from the `list_example`?
 ]
 
 
-<div class="countdown" id="timer_60ae54c6" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b7775c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+
+---
+class: center, middle, inverse
+name: function
+layout: false
+
+# Writing function in R
+
+&lt;img src="images/fun.png" width="60%" height="55%" /&gt;
+---
+class: middle
+
+## Functions
+
+.w-100.lh-copy[
+R function is a reusable code that is used to perform a single and related action. It is a piece of code that runs when it is called or referenced. R provides many inbuilt functions such as `c()`, `anyNA()`, `print()`, `class()`, `length()`, etc. but it also gives freedom to create your own functions.
+]
+
+--
+
+.w-100.lh-copy[
+Functions usually take in some sort of data structure (`value`, `vector`, `dataframe`, etc.) as an `argument`, process it, and return a result.
+]
+
+
+---
+
+## Types of Functions
+
+.w-100.lh-copy[
+Function extends the functionality of Python. Basically, we can categorize functions into the following two types:]
+
+
+--
+
+&lt;img src="images/fun1.png" width="713" style="display: block; margin: auto;" /&gt;
+
+--
+
+- **Built-in functions** - Functions that are pre-defined in R
+
+--
+
+- **User-defined functions** - Functions defined by the users themselves
+
+---
+
+### Advantages of R Functions
+
+--
+
+.w-100.lh-copy[
+Function allows us to automate repetitive tasks in a more powerful way than copy-and-pasting. Writing a function has the following advantages:
+
+- You can give a function a name that makes your code easier to understand and remember.
+ 	
+- As something changes, you only need to update code in one place, instead of many places.
+ 	
+- it avoids repetition and makes the code reusable.
+
+- Improves maintainability of the code.
+]
+
+--
+
+### When should you write a function?
+
+--
+.w-100.lh-copy[
+You should consider writing a function whenever you have copied and pasted a block of code more than two times.
+]
+
+---
+
+## Structure of a user-defined function
+
+There are three key steps to creating a new function:
+
+.w-100.lh-copy[
+- A function name i.e. `square_it`
+
+- A list of function `inputs` or `arguments`, inside the `function()`. For example, `function(x, y)`.
+
+- The R codes that use those arguments are wrapped between the curly brackets. For example, what do you want the function to do with the inputs? Create a plot? Calculate a statistic? Run a regression analysis? This is where you’ll write all the real R code behind the function.
+]
+
+
+```r
+name &lt;- function(variables) {
+
+
+
+}
+```
+
+---
+### Structure of a user-defined function
+
+The structure of a function is given below:
+
+
+```r
+name_of_function &lt;- function(argument1, argument2) {
+    
+  statements or code that does something
+    
+  return(something)
+}
+```
+
+.w-100.lh-copy[
+
+The argument(s) can be any type of object (like a `scalar`, a `matrix`, a `dataframe`, a `vector`, a `logical`, etc), and it’s not necessary to define what it is in any way.
+]
+
+--
+
+.w-100.lh-copy[
+
+If you save an object inside a function, then you need to return it by using the `return()` function before that function can bring the output.
+]
+
+--
+
+### Calling a user-defined function in R
+
+.w-100.lh-copy[
+You can call a user defined function like other in-built functions by its name. If the function accepts parameters or arguments, you will pass them while calling the function.
+]
+
+---
+### Example 1
+
+.w-100.lh-copy[
+Let's create a simple function. This function will take in a numeric value as input, and return the square of it.
+]
+
+--
+
+
+```r
+square_it &lt;- function(x) {
+  square &lt;- x^2
+
+  return(square)
+}
+```
+--
+
+.w-100.lh-copy[
+We will use this function to get the square of:
+
+- 12
+- 6
+]
+
+--
+
+.w-100.lh-copy[
+We type out the name of the function, and inside the parentheses we provide a numeric value x.
+]
+
+--
+
+.pull-left[
+
+```r
+square_it(12)
+```
+
+```
+[1] 144
+```
+]
+
+--
+
+.pull-right[
+
+```r
+square_it(x = 6)
+```
+
+```
+[1] 36
+```
+]
+
+
+
+---
+### Example 2
+
+.w-100.lh-copy[
+Write a function that takes any `object` as an input, and return `TRUE` if there is any missing value and also print their total number.]
+
+--
+Use this function to check and print the number of `NA` in:
+
+--
+- `airquality`
+
+--
+
+- `iris`
+
+--
+
+- `covid_confirmed &lt;- c(31, 30, 37, 25, NA, 34, 26, NA, 23, 45)`
+
+--
+
+-  `A &lt;- matrix(c(1, NA, 5, NA, 9, 0, 5, 4, NA), nrow = 3, ncol = 3, byrow = FALSE)`
+
+--
+
+
+```r
+check_NA &lt;- function(tbl) {
+  cat(anyNA(tbl), ",", sum(is.na(tbl)))
+}
+```
+---
+class: middle
+
+### Example 2
+
+
+```r
+check_NA &lt;- function(tbl) {
+  cat(anyNA(tbl), ",", sum(is.na(tbl)))
+}
+```
+--
+
+.pull-left[
+
+```r
+check_NA(airquality)
+```
+
+```
+TRUE , 44
+```
+]
+
+--
+
+.pull-right[
+
+```r
+check_NA(iris)
+```
+
+```
+FALSE , 0
+```
+]
+
+--
+
+
+```r
+covid_confirmed &lt;- c(31, 30, 37, 25, NA, 34, 26, NA, 23, 45)
+
+covid_confirmed
+```
+
+```
+ [1] 31 30 37 25 NA 34 26 NA 23 45
+```
+
+```r
+check_NA(covid_confirmed)
+```
+
+```
+TRUE , 2
+```
+---
+class: middle
+
+### Example 2
+
+
+
+```r
+check_NA &lt;- function(tbl) {
+  cat(anyNA(tbl), ",", sum(is.na(tbl)))
+}
+```
+
+--
+
+
+```r
+A &lt;- matrix(c(1, NA, 5, NA, 9, 0, 5, 4, NA), nrow = 3, ncol = 3, byrow = FALSE)
+
+A
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1   NA    5
+[2,]   NA    9    4
+[3,]    5    0   NA
+```
+
+```r
+check_NA(A)
+```
+
+```
+TRUE , 3
+```
+
+---
+### Exercise
+
+Write a function to convert to `Fahrenheit`, a temperature given in degree `Celsius`.
+
+You can use this formula:
+
+`Tc ∗ 1.8 + 32`
+
+where `Tc` is the Celsius degree to be converted.
+
+Use your function to convert the following `Celsius` to `Fahrenheit`:
+
+-	100
+
+-	75
+
+-	120
+
+
+<div class="countdown" id="timer_60b775bc" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+.can-edit[
+
+]
 
 ---
 class: center, middle
 
 ## Summary
 
+.left[
 .w-100.lh-copy[
-This tutorial introduced you to `R` and `RStudio`. You also learnt various atomic data types and different data structure available in R programming.
-]
+This tutorial introduced you to `R` programming fundamentals. 
 
+In this tutorial, you have learnt that:
+
+1. arithmetic operators include `+`, `-`, `/`, `*`, `^`, `%%`, and `()`
+
+2. R makes use of `#` to make a comment
+
+3. 	Comparison operators include `==`, `!=`, `&gt;`, `&lt;`, `&gt;=`,  and `&lt;=`.
+
+4. Atomic data type includes `numeric`, `character`, `logical`, and `factor`
+
+5. R data structure includes `vector`, `matrix`, `dataframe`, and `list`
+
+6. R has built-in functions and user-defined functions
+
+7. Built-in functions also known as base functions includes `print()`, `getwd()`, and `cat()`.
+]
+]
 ---
 class: center, middle, inverse
 

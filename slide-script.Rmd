@@ -1,5 +1,5 @@
 ---
-title: "R Programming Fundamental"
+title: "R Programming Fundamentals"
 #author: 
 #institute: "Data Science Nigeria (DSN)"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
@@ -8,7 +8,7 @@ output:
     yolo: true
     lib_dir: libs
     css: xaringan-themer.css
-    seal: true
+    seal: false
     nature:
       #autoplay: 30000
       #countdown: 60000
@@ -68,11 +68,20 @@ use_animate_all("fade")
 use_extra_styles()
 
 ```
+
+class: title-page, center, middle
+
+## R Programming Fundamentals
+
+### `r format(Sys.Date(), "%B %d, %Y")`
+
+---
+
 class: about-me-slide, inverse, middle, center
 
 ## About the trainer
 
-<img style="border-radius: 50%;" src="images/ezekiel.jpeg" width="150px"/>
+<img style="border-radius: 80%;" src="images/passport_new.jpg" width="180px"/>
 
 ### Ezekiel Adebayo Ogundepo
 
@@ -100,7 +109,7 @@ Goal:
 
 ---
 
-background-image: url(images/relax1.jpg)
+background-image: url(images/relax.jpg)
 background-size: cover
 background-position: 50% 50%
 class: center, top
@@ -109,7 +118,7 @@ class: center, top
 
 
 ---
-class: inverse
+class: inverse, middle
 name: toc
 
 
@@ -127,11 +136,12 @@ name: toc
 
 - [Basic Data Structure in R](#basic)
 
+- [Write your own function in R](#function)
 ]
 
 
 .footer[
-R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental)
+R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental).
 ]
 
 ---
@@ -274,9 +284,8 @@ include_graphics("images/r4ds.JPG")
 ---
 class: middle
 
-# Materials for learning R
+# R learning R Materials
 	
-
 You can learn R through the following useful selected materials:
 
 --
@@ -295,6 +304,9 @@ You can learn R through the following useful selected materials:
 
 - [Big Book of R](https://www.bigbookofr.com/)
 
+--
+
+- [Posts you might have missed!](https://postsyoumighthavemissed.com/search/)
 
 ---
 
@@ -315,6 +327,10 @@ class: center, middle, inverse
 name: cal
 
 # R as a calculator
+
+```{r, echo=FALSE, out.height= "55%", out.width= "60%"}
+include_graphics("images/calculator.png")
+```
 
 ---
 
@@ -644,6 +660,8 @@ We use `class()` function to check or determine the type of any object in R.
 
 ### Examples
 
+.pull-left[
+
 ```{r}
 class(2)
 ```
@@ -660,6 +678,9 @@ class("female")
 ```{r}
 class("I am from Abuja")
 ```
+]
+
+.pull-right[
 
 ```{r}
 class(TRUE)
@@ -669,6 +690,14 @@ class(TRUE)
 class(FALSE)
 ```
 
+```{r}
+factor(c("Male", "Female", "Female", "Male", "Female"))
+
+class(factor(c("Male", "Female", "Female", "Male", "Female"))
+)
+```
+
+]
 ---
 
 ### Variable assignment
@@ -983,7 +1012,7 @@ name: basic
 
 1. [Matrix : All columns must uniformly contain only one data type](#matrix)
 
-1. [data frame : The columns can contain different classes](#df)
+1. [Data frame : The columns can contain different classes](#df)
 
 1. [List : Can hold object of different classes and length](#list)
 
@@ -995,26 +1024,36 @@ name: vector
 # Vector
 
 ---
-# Create a vector
+## A vector
 
 .w-100.lh-copy[
-Vector is a one-dimensional array that can hold data type. In `R`, you can create a vector with the combine function `c()`. You place the vector elements separate by a comma between the parenthesis.
+A vector is a one-dimensional array that can hold data type. In `R`, you can create a vector with the combine function `c()`. You place the vector elements separate by a comma between the parenthesis.
 ]
 
-### For example
+--
+
+### Examples
 
 ```{r}
 covid_confirmed <- c(31, 30, 37, 25, 33, 34, 26, 32, 23, 45) 
 ```
+--
 
 ```{r}
 month <- c("January", "February",  "March", "April",  "May", "June", "July", "August", "September", "October")
 ```
+--
 
-### Note
+```{r}
+gender <- factor(c("Male", "Female", "Female", "Male", "Female"))
+```
 
-Adding a space behind the commas in the `c()` function improves the readability of your code.
+--
+#### Note
 
+.w-100.lh-copy[
+Adding a space after every comma in the `c()` function improves the readability of your code.
+]
 
 ---
 ## Length of a vector
@@ -1033,6 +1072,11 @@ month <- c("January", "February",  "March", "April",  "May", "June", "July", "Au
 length(month)
 ```
 
+```{r}
+gender <- factor(c("Male", "Female", "Female", "Male", "Female"))
+
+length(gender)
+```
 
 ---
 
@@ -1053,9 +1097,9 @@ sales_amount
 
 ---
 
-### Arithmetic with vectors
+### Arithmetic operations with vectors
 
-If you add two vectors together, R sum it element-wise
+If you add two vectors together, R sum it element-wise.
 
 #### Example 
 
@@ -1063,11 +1107,15 @@ If you add two vectors together, R sum it element-wise
 egg_weight1 = c(59, 56, 61, 68, 52, 53, 69, 54, 57, 51)
 
 egg_weight2 = c(56, 51, 69, 52, 57, 68, 61, 54, 59, 53)
+```
+
+```{r}
 
 total_weight = egg_weight1 + egg_weight2
 
 total_weight
 ```
+
 --
 
 #### Exercise
@@ -1915,22 +1963,22 @@ class: center, middle, inverse
 layout: false
 name: df
 
-# Dataframe
+# Data frame
 
 ---
-# Dataframe
+# Data frame
 
 .w-100.lh-copy[
-Dataframe is another way to put data in a table! Unlike matrices, dataframe can have different types of data!
+A data frame is another way to put data in a table! Unlike matrices, data frame can have different types of data!
 
-A dataframe has the variables of a data set as `columns` and the observations as `rows`. This will be a familiar concept for those coming from different statistical software packages such as `Excel`, `SPSS`, or `STATA`. We create a dataframe by using `data.frame()` function.
+A data frame has the variables of a data set as `columns` and the observations as `rows`. This will be a familiar concept for those coming from different statistical software packages such as `Excel`, `SPSS`, or `STATA`. We create a data frame by using `data.frame()` function.
 ]
 ---
 
 ### Example 1
 
 .w-100.lh-copy[
-Create a dataframe with columns name `age`, `gender`, and `bank account`.
+Create a data frame with columns name `age`, `gender`, and `bank account`.
 ]
 
 ```{r,}
@@ -1946,7 +1994,7 @@ demographic_data
 --
 
 .w-100.lh-copy[
-The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels. Also note that each **column** in a dataframe is a **vector**!
+The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels. Also note that each **column** in a data frame is a **vector**!
 ]
 
 ---
@@ -1954,7 +2002,7 @@ The number `1 2 3 4 5` at the left hand side on your `console` are `row` labels.
 ### Example 2
 
 .w-100.lh-copy[
-Create a dataframe with columns `states`, `confirmed cases`, `recovered cases` and `death cases`.]
+Create a data frame with columns `states`, `confirmed cases`, `recovered cases` and `death cases`.]
 
 ```{r}
 states <- c("Lagos", "FCT", "Plateau", "Kaduna", "Rivers", "Oyo")
@@ -1973,13 +2021,13 @@ covid_19
 
 
 ---
-# Creating dataframe
+# Creating data frame
 
 .panelset[
 
 .panel[.panel-name[Exercise]
 
-Create a dataframe for the following data:
+Create a data frame for the following data:
 
 ```{r, echo=FALSE}
 gender <- c("Male", NA, "Female", "Female", "Male", "Female", NA)
@@ -2028,12 +2076,12 @@ layout: true
 ---
 
 .w-100.lh-copy[
-Working with large datasets is common in data science. When you work with (extremely) large datasets and dataframes, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only part of the entire dataset.
+Working with large datasets is common in data science. When you work with (extremely) large datasets and data frames, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only part of the entire dataset.
 ]
 
 --
 
-**1.** `head()`: enables you to show the first observations of a dataframe.
+**1.** `head()`: enables you to show the first observations of a data frame.
 
 --
 
@@ -2051,7 +2099,7 @@ Another method that is often used to get a rapid overview of your dataset is the
 
 **3.** `str()`: shows you the structure of your dataset 
 
-The structure of a dataframe tells you :
+The structure of a data frame tells you :
   
 1. The total number of observations
 2. The total number of variables
@@ -2061,40 +2109,40 @@ The structure of a dataframe tells you :
 ---
 
 .w-100.lh-copy[
-Applying the `str()` function will often be the first thing that you do when receiving a new dataset or dataframe. It is a great way to get more insight in your dataset before diving into the real analysis.
+Applying the `str()` function will often be the first thing that you do when receiving a new dataset or data frame. It is a great way to get more insight in your dataset before diving into the real analysis.
 ]
 
 --
 
-**4.** `names()`: prints each column name in a  dataframe. 
+**4.** `names()`: prints each column name in a  data frame. 
 
 --
 
-**5.** `nrow()`: returns the number of rows present in a `dataframe`.
+**5.** `nrow()`: returns the number of rows present in a `data frame`.
 
 --
 
-**6.** `ncol()`: returns the number of columns present in a `dataframe`.
+**6.** `ncol()`: returns the number of columns present in a `data frame`.
 
 --
 
-**7.** `dim()`: returns the number of rows and columns in a dataframe.
+**7.** `dim()`: returns the number of rows and columns in a data frame.
 
 --
 
 .w-100.lh-copy[
-**8.** `View()`: invoke a spreadsheet-style data viewer on a dataframe. 
+**8.** `View()`: invoke a spreadsheet-style data viewer on a data frame. 
 ]
 
 --
 
 .w-100.lh-copy[
-That is, it opens a new tab in the RStudio to display the entire dataframe in a spreadsheet-style.
+That is, it opens a new tab in the RStudio to display the entire data frame in a spreadsheet-style.
 ]
 
 --
 .w-100.lh-copy[
-**9.** `summary()`: returns summary or descriptive statistics of all columns in a dataframe
+**9.** `summary()`: returns summary or descriptive statistics of all columns in a data frame
 ]
 
 
@@ -2121,7 +2169,7 @@ bmi = weight/height^2
 
 --
 
-Create a `dataframe` for the data.
+Create a `data frame` for the data.
 --
 
 ```{r}
@@ -2131,7 +2179,7 @@ medical_data <- data.frame(gender, height, weight, bmi)
 ---
 layout: true
 
-### Examine the dataframe
+### Examine the data frame
 
 ---
 
@@ -2235,11 +2283,11 @@ tail(iris_data, 4)
 
 ---
 layout: true
-# Dataframe subsetting
+# Subsetting data frame
 
 ---
 .w-100.lh-copy[
-Every column in a dataframe has a name and if you can recall, we can print the names attribute of a dataframe (i.e. `iris`) by using:
+Every column in a data frame has a name and if you can recall, we can print the names attribute of a data frame (i.e. `iris`) by using:
 ]
 
 --
@@ -2251,7 +2299,7 @@ names(iris)
 --
 
 .w-100.lh-copy[
-and to access a specific column in a dataframe by name, you will use the `$` operator in the form of `df$colname`, where `df` is the name of the dataframe and `colname` is the name of the column you are interested in. This operation will then return the column you want as a vector.
+and to access a specific column in a data frame by name, you will use the `$` operator in the form of `df$colname`, where `df` is the name of the data frame and `colname` is the name of the column you are interested in. This operation will then return the column you want as a vector.
 
 Please note that `$` only extracts by name and has a little less typing.                                                      
 ]
@@ -2260,7 +2308,7 @@ Please note that `$` only extracts by name and has a little less typing.
 
 ### Example 1
 
-Use the `$` operator to get a vector of `Sepal.Length` from the `iris` dataframe:
+Use the `$` operator to get a vector of `Sepal.Length` from the `iris` data frame:
 
 --
 
@@ -2272,7 +2320,7 @@ iris$Sepal.Length
 
 ### Example 2
 
-Use the `$` operator to get a vector of `Species` from the `iris` dataframe:
+Use the `$` operator to get a vector of `Species` from the `iris` data frame:
 
 --
 
@@ -2282,13 +2330,13 @@ iris$Species
 
 ---
 .w-100.lh-copy[
-Because the `$` operator returns a vector, you can easily calculate descriptive statistics on columns of a dataframe by applying your favorite vector function (like `mean()`, `sd()`, or `table()`) to a column using `$`. 
+Because the `$` operator returns a vector, you can easily calculate descriptive statistics on columns of a data frame by applying your favorite vector function (like `mean()`, `sd()`, or `table()`) to a column using `$`. 
 ]
 
 --
 
 .w-100.lh-copy[
-Let’s calculate the mean of `Sepal.Length` with `mean()` and the frequency of each `Species` with `table()`in the iris dataframe:
+Let’s calculate the mean of `Sepal.Length` with `mean()` and the frequency of each `Species` with `table()`in the iris data frame:
 ]
 
 ```{r}
@@ -2300,19 +2348,19 @@ table(iris$Species)
 ---
 layout: true
 
-## Slicing dataframe with [ , ]
+## Slicing data frame with [ , ]
 
 ---
 
 .w-100.lh-copy[
-Just like a matrix, you can access specific data in a dataframe by using square brackets `[ , ]`. To do this, we use the notation `data[rows, cols]`, where rows and columns are vectors of integers.
+Just like a matrix, you can access specific data in a data frame by using square brackets `[ , ]`. To do this, we use the notation `data[rows, cols]`, where rows and columns are vectors of integers.
 ]
 
 ### Example
 
 ```{r, echo=FALSE}
 dat <- tibble::tribble(
-      ~`Dataframe slicing`,                        ~Interpretation,
+      ~`data frame slicing`,                        ~Interpretation,
             "data[1,  ]",            "first row and all columns",
            "data[ , 2]",           "all rows and second column",
   "data[c(1, 3, 5),  2]",             "row 1, 3, 5 and column 2 only",
@@ -2358,7 +2406,14 @@ str(airquality)
 ### Select the first three columns of the dataset
 
 ```{r}
-airquality[ , 1:3]
+airquality[ , 1:3] # Extract columns by position
+```
+---
+### Select the first three columns of the dataset
+
+```{r}
+airquality[ , c("Ozone",  "Solar.R", "Wind")]
+# Extract columns by name
 ```
 
 ---
@@ -2409,11 +2464,11 @@ head(airquality, 6)
 
 ---
 layout: true
-## Missing values in a dataframe
+## Missing values in a data frame
 
 ---
 .w-100.lh-copy[
-R programming indicates any missing value in a dataframe with `NA` and to check whether a dataframe has a missing value in any of its columns, we use the command `anyNA()`.
+R programming indicates any missing value in a data frame with `NA` and to check whether a data frame has a missing value in any of its columns, we use the command `anyNA()`.
 ]
 
 --
@@ -2434,8 +2489,8 @@ anyNA(iris)
 ---
 
 .w-100.lh-copy[
-To get the total number of missing values in a dataframe, we use the command `sum(is.na(dataframe))`
-where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the dataframe.]
+To get the total number of missing values in a data frame, we use the command `sum(is.na(dataframe))`
+where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the data frame.]
 
 --
 
@@ -2453,7 +2508,7 @@ sum(is.na(iris))
 ```
 --
 
-The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the dataframe. Please make sure you install `inspectdf` package.
+The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the data frame. Please make sure you install `inspectdf` package.
 
 ---
 class: center, middle, inverse
@@ -2467,7 +2522,7 @@ layout: false
 # List
 
 .w-100.lh-copy[
-A list in **R** allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be `matrix`, `vector`, `dataframe`, even `other lists`. It is not even required that these objects are related to each other in any way.
+A list in **R** allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be `matrices`, `vectors`, `dataframes`, even `other lists`. It is not even required that these objects are related to each other in any way.
 You can create a list by using the function `list()`. Arguments (`args`) to the list function are the list components. Remember, these components can be `vector`, `matrices`, `data.frame`, or `other list`.
 ]
 
@@ -2618,15 +2673,335 @@ How would you extract the component `iris_data` from the `list_example`?
 countdown::countdown(minutes = 1, seconds = 0)
 ```
 
+
+---
+class: center, middle, inverse
+name: function
+layout: false
+
+# Writing function in R
+
+```{r, echo=FALSE, out.height= "55%", out.width= "60%"}
+include_graphics("images/fun.png")
+```
+---
+class: middle
+
+## Functions
+
+.w-100.lh-copy[
+R function is a reusable code that is used to perform a single and related action. It is a piece of code that runs when it is called or referenced. R provides many inbuilt functions such as `c()`, `anyNA()`, `print()`, `class()`, `length()`, etc. but it also gives freedom to create your own functions.
+]
+
+--
+
+.w-100.lh-copy[
+Functions usually take in some sort of data structure (`value`, `vector`, `dataframe`, etc.) as an `argument`, process it, and return a result.
+]
+
+
+---
+
+## Types of Functions
+
+.w-100.lh-copy[
+Function extends the functionality of Python. Basically, we can categorize functions into the following two types:]
+
+
+--
+
+```{r, echo=FALSE, fig.align='center'}
+include_graphics("images/fun1.png")
+```
+
+--
+
+- **Built-in functions** - Functions that are pre-defined in R
+
+--
+
+- **User-defined functions** - Functions defined by the users themselves
+
+---
+
+### Advantages of R Functions
+
+--
+
+.w-100.lh-copy[
+Function allows us to automate repetitive tasks in a more powerful way than copy-and-pasting. Writing a function has the following advantages:
+
+- You can give a function a name that makes your code easier to understand and remember.
+ 	
+- As something changes, you only need to update code in one place, instead of many places.
+ 	
+- it avoids repetition and makes the code reusable.
+
+- Improves maintainability of the code.
+]
+
+--
+
+### When should you write a function?
+
+--
+.w-100.lh-copy[
+You should consider writing a function whenever you have copied and pasted a block of code more than two times.
+]
+
+---
+
+## Structure of a user-defined function
+
+There are three key steps to creating a new function:
+
+.w-100.lh-copy[
+- A function name i.e. `square_it`
+
+- A list of function `inputs` or `arguments`, inside the `function()`. For example, `function(x, y)`.
+
+- The R codes that use those arguments are wrapped between the curly brackets. For example, what do you want the function to do with the inputs? Create a plot? Calculate a statistic? Run a regression analysis? This is where you’ll write all the real R code behind the function.
+]
+
+```{r}
+name <- function(variables) {
+  
+  
+  
+}
+```
+
+---
+### Structure of a user-defined function
+
+The structure of a function is given below:
+
+```{r, eval=FALSE, error= F}
+name_of_function <- function(argument1, argument2) {
+    
+  statements or code that does something
+    
+  return(something)
+}
+```
+
+.w-100.lh-copy[
+
+The argument(s) can be any type of object (like a `scalar`, a `matrix`, a `dataframe`, a `vector`, a `logical`, etc), and it’s not necessary to define what it is in any way.
+]
+
+--
+
+.w-100.lh-copy[
+
+If you save an object inside a function, then you need to return it by using the `return()` function before that function can bring the output.
+]
+
+--
+
+### Calling a user-defined function in R
+
+.w-100.lh-copy[
+You can call a user defined function like other in-built functions by its name. If the function accepts parameters or arguments, you will pass them while calling the function.
+]
+
+---
+### Example 1
+
+.w-100.lh-copy[
+Let's create a simple function. This function will take in a numeric value as input, and return the square of it.
+]
+
+--
+
+```{r}
+square_it <- function(x) {
+    
+  square = x^2
+  
+    return(square)
+}
+
+```
+--
+
+.w-100.lh-copy[
+We will use this function to get the square of:
+
+- 12
+- 6
+]
+
+--
+
+.w-100.lh-copy[
+We type out the name of the function, and inside the parentheses we provide a numeric value x.
+]
+
+--
+
+.pull-left[
+```{r}
+square_it(12)
+```
+]
+
+--
+
+.pull-right[
+```{r}
+square_it(x = 6)
+```
+]
+
+
+
+---
+### Example 2
+
+.w-100.lh-copy[
+Write a function that takes any `object` as an input, and return `TRUE` if there is any missing value and also print their total number.]
+
+--
+Use this function to check and print the number of `NA` in:
+
+--
+- `airquality`
+
+--
+
+- `iris`
+
+--
+
+- `covid_confirmed <- c(31, 30, 37, 25, NA, 34, 26, NA, 23, 45)`
+
+--
+
+-  `A <- matrix(c(1, NA, 5, NA, 9, 0, 5, 4, NA), nrow = 3, ncol = 3, byrow = FALSE)`
+
+--
+
+```{r}
+check_NA <- function(tbl) {
+    
+  cat(anyNA(tbl), ",", sum(is.na(tbl)))
+}
+```
+---
+class: middle
+
+### Example 2
+
+```{r}
+check_NA <- function(tbl) {
+    
+  cat(anyNA(tbl), ",", sum(is.na(tbl)))
+}
+```
+--
+
+.pull-left[
+```{r}
+check_NA(airquality)
+```
+]
+
+--
+
+.pull-right[
+```{r}
+check_NA(iris)
+```
+]
+
+--
+
+```{r}
+covid_confirmed <- c(31, 30, 37, 25, NA, 34, 26, NA, 23, 45)
+
+covid_confirmed
+
+check_NA(covid_confirmed)
+```
+---
+class: middle
+
+### Example 2
+
+
+```{r}
+check_NA <- function(tbl) {
+    
+  cat(anyNA(tbl), ",", sum(is.na(tbl)))
+}
+```
+
+--
+
+```{r}
+A <- matrix(c(1, NA, 5, NA, 9, 0, 5, 4, NA), nrow = 3, ncol = 3, byrow = FALSE)
+
+A
+
+check_NA(A)
+```
+
+---
+### Exercise
+
+Write a function to convert to `Fahrenheit`, a temperature given in degree `Celsius`.
+
+You can use this formula:
+
+`Tc ∗ 1.8 + 32`
+
+where `Tc` is the Celsius degree to be converted.
+
+Use your function to convert the following `Celsius` to `Fahrenheit`:
+
+-	100
+
+-	75
+
+-	120
+
+
+```{r, echo=FALSE}
+countdown(minutes = 3)
+```
+
+
+.can-edit[
+
+]
+
 ---
 class: center, middle
 
 ## Summary
 
+.left[
 .w-100.lh-copy[
-This tutorial introduced you to `R` and `RStudio`. You also learnt various atomic data types and different data structure available in R programming.
-]
+This tutorial introduced you to `R` programming fundamentals. 
 
+In this tutorial, you have learnt that:
+
+1. arithmetic operators include `+`, `-`, `/`, `*`, `^`, `%%`, and `()`
+
+2. R makes use of `#` to make a comment
+
+3. 	Comparison operators include `==`, `!=`, `>`, `<`, `>=`,  and `<=`.
+
+4. Atomic data type includes `numeric`, `character`, `logical`, and `factor`
+
+5. R data structure includes `vector`, `matrix`, `dataframe`, and `list`
+
+6. R has built-in functions and user-defined functions
+
+7. Built-in functions also known as base functions includes `print()`, `getwd()`, and `cat()`.
+]
+]
 ---
 class: center, middle, inverse
 
