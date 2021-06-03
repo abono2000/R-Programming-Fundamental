@@ -102,7 +102,7 @@ class: middle
 
 Goal:
 
-> The goal of this R workshop is to help you learn the most important skills in R that will allow you to do data science.
+> The goal of this R workshop is to help you learn the most important skills in R for data science.
 
 ]
 
@@ -551,7 +551,7 @@ Comments are not run as R code, so they will not influence your result and R ign
 
 --
 
-#### Examples
+**Examples**
 
 ```{r}
 # We use * for multiplication in R
@@ -561,12 +561,10 @@ Comments are not run as R code, so they will not influence your result and R ign
 
 --
 
-It is important to put a space after the **#** for easy readability
+It is important to put a space after the **#** for easy readability.
 
 ```{r}
-# a space after #<<
-
-3 + 6
+3 + 6 # a space after #<<
 ```
 
 
@@ -1477,7 +1475,7 @@ sample(x = 1:10, size = 20, replace = TRUE)
 ---
 
 .w-100.lh-copy[
-Let’s simulate `10` flips of a biased coin, where the probably of getting a Head (`H`) is `0.7` and the probability of a Tail(`T`) is `0.3`.
+Let’s simulate `10` flips of a biased coin, where the probability of getting a Head (`H`) is `0.7` and the probability of a Tail(`T`) is `0.3`.
 ]
 
 --
@@ -1563,7 +1561,7 @@ Poisson distribution is a probability distribution that can be used to show how 
 
 ### Example
 
-Draw 15 samples from a Poisson distribution with `lambda = 45`.
+Draw 40 samples from a Poisson distribution with `lambda = 45`.
 
 --
 
@@ -1601,7 +1599,7 @@ The Normal also known as Gaussian distribution is one of the most important dist
 
 ### Example
 
-Draw 10 samples from a Normal distribution with `mean = 30`, `sd = 5`
+Draw 100 samples from a Normal distribution with `mean = 30`, `sd = 5`
 
 --
 
@@ -1664,8 +1662,14 @@ x <-  c(2, 3, 4, 2, 4, 5, 3, 5, 3, 5)
 sum(x)
 mean(x)
 var(x)
-barplot(table(x), col = "purple")
+barplot(table(x), col = "purple") 
 ```
+
+--
+
+#### Important note
+
+The `table()` function helps us to create a frequency table while `barplot()` plots the bar chart of the result.
 ]
 .panel[.panel-name[Solution 3-4]
 
@@ -2717,7 +2721,7 @@ Functions usually take in some sort of data structure (`value`, `vector`, `dataf
 ## Types of Functions
 
 .w-100.lh-copy[
-Function extends the functionality of Python. Basically, we can categorize functions into the following two types:]
+Function extends the functionality of **R**. Basically, we can categorize functions into the following two types:]
 
 
 --

@@ -3,7 +3,7 @@
   <head>
     <title>R Programming Fundamentals</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2021-06-02" />
+    <meta name="date" content="2021-06-03" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -12,7 +12,7 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xddd96da9ee54e00852f34bd0e9cd7ec","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x4765e59bc5f4cd5952218d0d2628f10","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -61,7 +61,7 @@ class: title-page, center, middle
 
 ## R Programming Fundamentals
 
-### June 02, 2021
+### June 03, 2021
 
 ---
 
@@ -90,7 +90,7 @@ class: middle
 
 Goal:
 
-&gt; The goal of this R workshop is to help you learn the most important skills in R that will allow you to do data science.
+&gt; The goal of this R workshop is to help you learn the most important skills in R for data science.
 
 ]
 
@@ -659,7 +659,7 @@ Comments are not run as R code, so they will not influence your result and R ign
 
 --
 
-#### Examples
+**Examples**
 
 
 ```r
@@ -674,13 +674,11 @@ Comments are not run as R code, so they will not influence your result and R ign
 
 --
 
-It is important to put a space after the **#** for easy readability
+It is important to put a space after the **#** for easy readability.
 
 
 ```r
-*# a space after
-
-3 + 6
+*3 + 6 # a space after
 ```
 
 ```
@@ -1136,7 +1134,7 @@ smile_face &lt;- "FALSE"
 
 
 
-<div class="countdown" id="timer_60b783f0" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b560" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">00</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">42</span></code>
 </div>
 
@@ -1583,7 +1581,7 @@ How can we access `Monday` and `Thursday` from the vector, `week_day`?
  
 ]
 
-<div class="countdown" id="timer_60b783af" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b65a" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1616,7 +1614,7 @@ Data relating to the marks of 13 students in the Introduction to R quiz are givi
  
 ]
 
-<div class="countdown" id="timer_60b783cc" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b616" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1631,7 +1629,7 @@ marks &lt;- c(10, 15, 10, 9, 18, 16, 14, 12, 16, 13, 15, 20, 17)
 marks[marks &gt; 13]
 ```
 
-<div class="countdown" id="timer_60b78484" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b455" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1839,7 +1837,7 @@ rep(1:4, 1:4)
 rep(1:4, c(4, 1, 8, 2))
 ```
 
-<div class="countdown" id="timer_60b78181" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b82c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -1880,7 +1878,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Banana" "Pawpaw" "Grape"  "Cherry"
+[1] "Grape"  "Banana" "Pawpaw" "Orange"
 ```
 --
 
@@ -1894,7 +1892,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Banana" "Grape"  "Orange" "Cherry"
+[1] "Pawpaw" "Grape"  "Orange" "Apple" 
 ```
 ---
 
@@ -1953,7 +1951,7 @@ sample(x = 1:10, size = 20, replace = TRUE)
 ---
 
 .w-100.lh-copy[
-Let’s simulate `10` flips of a biased coin, where the probably of getting a Head (`H`) is `0.7` and the probability of a Tail(`T`) is `0.3`.
+Let’s simulate `10` flips of a biased coin, where the probability of getting a Head (`H`) is `0.7` and the probability of a Tail(`T`) is `0.3`.
 ]
 
 --
@@ -1986,7 +1984,7 @@ Use R to draw 10 random coins from the chest.
 
 ]
 
-<div class="countdown" id="timer_60b7827c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b4cc" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -2047,7 +2045,7 @@ Poisson distribution is a probability distribution that can be used to show how 
 
 ### Example
 
-Draw 15 samples from a Poisson distribution with `lambda = 45`.
+Draw 40 samples from a Poisson distribution with `lambda = 45`.
 
 --
 
@@ -2094,7 +2092,7 @@ The Normal also known as Gaussian distribution is one of the most important dist
 
 ### Example
 
-Draw 10 samples from a Normal distribution with `mean = 30`, `sd = 5`
+Draw 100 samples from a Normal distribution with `mean = 30`, `sd = 5`
 
 --
 
@@ -2158,7 +2156,7 @@ layout: false
    
    Generate 50 observations for both `height` and `weight`.
   
-  <div class="countdown" id="timer_60b7836d" style="right:0;bottom:0;" data-warnwhen="60">
+  <div class="countdown" id="timer_60b8b75d" style="right:0;bottom:0;" data-warnwhen="60">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2183,6 +2181,12 @@ mean(x)
 var(x)
 barplot(table(x), col = "purple")
 ```
+
+--
+
+#### Important note
+
+The `table()` function helps us to create a frequency table while `barplot()` plots the bar chart of the result.
 ]
 .panel[.panel-name[Solution 3-4]
 
@@ -2276,7 +2280,7 @@ Create the matrix `A` with R:
 ]
 
 
-<div class="countdown" id="timer_60b782b7" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b68f" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2406,7 +2410,7 @@ How would you select the following matrices from A?
 ]
 
 
-<div class="countdown" id="timer_60b78465" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b54f" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2675,7 +2679,7 @@ Create a data frame for the following data:
 7   &lt;NA&gt;     NA    100
 ```
 
-<div class="countdown" id="timer_60b781ed" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b4c9" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 .can-edit[
@@ -4008,7 +4012,7 @@ How would you extract the component `iris_data` from the `list_example`?
 ]
 
 
-<div class="countdown" id="timer_60b782af" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b4c1" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -4042,7 +4046,7 @@ Functions usually take in some sort of data structure (`value`, `vector`, `dataf
 ## Types of Functions
 
 .w-100.lh-copy[
-Function extends the functionality of Python. Basically, we can categorize functions into the following two types:]
+Function extends the functionality of **R**. Basically, we can categorize functions into the following two types:]
 
 
 --
@@ -4348,7 +4352,7 @@ Use your function to convert the following `Celsius` to `Fahrenheit`:
 -	120
 
 
-<div class="countdown" id="timer_60b7837c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60b8b4f3" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
