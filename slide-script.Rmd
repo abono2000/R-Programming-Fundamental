@@ -51,25 +51,24 @@ use_webcam(width = 150, height = 150)
 
 use_extra_styles()
 ```
-
 background-image: url(images/DSN.PNG), url(images/R_logo.png)
 background-position: 0% 100%, 100% 0%
 background-size: 40%, 10%
-
 
 class: title-page, center, middle
 
 ## R Programming Fundamentals
 
-```{r chart2, out.width='.3\\linewidth', fig.width=3, fig.height = 4,fig.show='hold', echo=FALSE}
-
-#include_graphics("images/DSN.PNG")
-#include_graphics("images/R_logo.png")
-
+```{r, echo=FALSE}
+use_logo(
+  image_url = "images/logo.png",
+  link_url = "http://www.datasciencenigeria.org",
+  position = xaringanExtra::css_position(top = "1em", right = "1em"),
+  exclude_class = c("title-page", "inverse", "hide_logo")
+)
 ```
 
 ---
-
 class: about-me-slide, inverse, middle, center
 
 ## About the trainer
@@ -102,11 +101,10 @@ Goal:
 
 
 ---
-
 background-image: url(images/relax.jpg)
 background-size: cover
 background-position: 50% 50%
-class: center, top
+class: center, top, hide_logo
 
 ## Relax, programming in R is cool!
 
