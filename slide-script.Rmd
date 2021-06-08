@@ -47,33 +47,26 @@ install.load::install_load(c("knitr", "xaringanExtra", "xaringan", "tidyverse", 
 
 xaringanExtra::use_xaringan_extra(include = c("tile_view", "editable", "share_again", "broadcast", "animate_css", "panelset", "tachyons", "fit_screen", "clipboard", "search", "scribble", "freezeframe"))
 
-# Use some functions in xaringanExtra
-
-#use_tile_view()
-# 
-# use_panelset()
-# 
 use_webcam(width = 150, height = 150)
-# 
-# use_clipboard()
-# 
-# use_editable()
-# 
-use_animate_all("fade")
-# 
-# use_broadcast()
-# 
-# use_search()
 
 use_extra_styles()
-
 ```
+
+background-image: url(images/DSN.PNG), url(images/R_logo.png)
+background-position: 0% 100%, 100% 0%
+background-size: 40%, 10%
+
 
 class: title-page, center, middle
 
 ## R Programming Fundamentals
 
-### `r format(Sys.Date(), "%B %d, %Y")`
+```{r chart2, out.width='.3\\linewidth', fig.width=3, fig.height = 4,fig.show='hold', echo=FALSE}
+
+#include_graphics("images/DSN.PNG")
+#include_graphics("images/R_logo.png")
+
+```
 
 ---
 
@@ -104,6 +97,7 @@ Goal:
 
 > The goal of this R workshop is to help you learn the most important skills in R for data science.
 
+
 ]
 
 
@@ -121,7 +115,6 @@ class: center, top
 class: inverse, middle
 name: toc
 
-
 # Table of content
 
 .w-100.lh-copy[
@@ -137,11 +130,6 @@ name: toc
 - [Basic Data Structure in R](#basic)
 
 - [Write your own function in R](#function)
-]
-
-
-.footer[
-R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental).
 ]
 
 ---
@@ -171,10 +159,22 @@ R is a programming language and free software environment for statistical
 computations, data cleaning, data analysis, and graphical representation of data. The R language is widely used among statisticians and data miners
 for developing statistical software and data analysis.
 ]
+
 --
 
 .w-100.lh-copy[
-In the year `2020`, the R community celebrated the 20th year of R version `1.0.0` and the current version of R programming is `4.0.5` (Shake and Throw).
+In the year `2020`, the R community celebrated the 20th year of R version `1.0.0`. The current version of R programming is `4.1.0` with the nickname *Camp Pontanezen*. 
+]
+
+--
+
+.w-100.lh-copy[
+
+R has released so many versions and you can see their list by using:
+
+```{r, eval=FALSE}
+rversions::r_versions()
+```
 ]
 
 ---
@@ -198,7 +198,7 @@ RStudio is an integrated development environment (IDE) for R programming. RStudi
 
 # RStudio
 
-The current version of RStudio is 1.4.1106
+The current version of RStudio is `1.4.1717`
 
 ```{r, echo=FALSE, out.height= "100%"}
 include_graphics("images/R_studio.PNG")
@@ -221,13 +221,13 @@ You can install R on any operating system (OS).
 
 - Download R for Windows OS from this [link](https://cran.r-project.org/bin/windows/base/)
 
-- Open the downloaded `.exe` file and Install R
+- Open the `.exe` file and install it.
 
 **For Mac** :
 
-Download R for Mac via this [link](https://cran.r-project.org/bin/macosx/R-4.0.5.pkg)
+Download R for Mac via this [link](https://cran.r-project.org/bin/macosx/). Please make sure you click on the first `.pkg` link,
 
-- Open the downloaded `.pkg` file and Install R
+- Open the `.pkg` file and install it.
 
 **For Linux**:
 For complete R System installation in Linux, follow the instructions on this
@@ -239,8 +239,9 @@ For Ubuntu with Apt-get installed, execute `sudo apt-get install r-base` in the 
 
 .panel[.panel-name[Install RStudio]
 
-You can install RStudio via this [link](https://cran.r-project.org/) and choose the appropriate installer file for your operating system, download it, and then run it to install RStudio.
-
+.w-100.lh-copy[
+You can install **RStudio** via this [link](https://cran.r-project.org/), choose the appropriate installer file for your operating system, download it, and then run it to install **RStudio**.
+]
 ]
 ]
 
@@ -637,24 +638,34 @@ We can compare two or more values by using comparison operators. These types of 
 class: middle, center, inverse
 name: var
 
-## Atomic Data Type and Variable Assignment in R
+## Atomic Data Type in R
+
+
+```{r, echo=FALSE, out.height= "100%", out.width = "100%"}
+knitr::include_graphics("images/datatypes.png")
+```
+
 
 ---
 # Classes of objects in R
 
 .w-100.lh-copy[
-R works with numerous atomic classes of objects. Some of the most basic
+R works with numerous atomic classes of objects. The most basic
 atomic data types are:
 
-- Numeric such as integer (4, -2) or float (4.7)
+- `Numeric` such as integer (4, -2) or float (4.7, -0.26)
 
-- Character such as texts (or string) values e.g. "Nigeria", "Corona virus", "baby"
+- `Character` such as texts (or strings) and must be enclosed within either single or double quotes. e.g. "Nigeria", "COVID-19", "baby", "Hello world".
 
-- Logical such as `TRUE` or `FALSE`
+- `Logical` such as `TRUE` or `FALSE`
 
-- Factors - Categorical variable where each level is a category 
+- `Complex` - A complex number in mathematics. It is written as `a + bi` where `a` is the real part and `b` is the imaginary part. e.g. `2 + 2i`, `3 - 3i`.
+]
 
-We use `class()` function to check or determine the type of any object in R.
+--
+
+.w-100.lh-copy[
+We use `class()` function to check or determine the type of any object in `R`.
 ]
 
 ---
@@ -692,10 +703,9 @@ class(FALSE)
 ```
 
 ```{r}
-factor(c("Male", "Female", "Female", "Male", "Female"))
+class(2+2i)
 
-class(factor(c("Male", "Female", "Female", "Male", "Female"))
-)
+class(3-6i)
 ```
 
 ]
@@ -799,12 +809,14 @@ smile_face = TRUE
 
 ## Rules for naming variables
 
+.w-100.lh-copy[
+
 * All variables must begin with a letter of the alphabet.
 
 * After the initial letter, variable names can also contain (_ or .) and numbers. No spaces or special characters, however are allowed.
 
-* Uppercase characters are different from lowercase characters (in R and also in Python)
-
+* Uppercase characters are different from lowercase characters (in `R` and also in `Python`).
+]
 
 ```{r, echo=FALSE}
 
@@ -821,8 +833,9 @@ sample %>% kable(format = "html")
 
 --
 
+.w-100.lh-copy[
 The best naming convention is to choose a variable name that will tell the reader of the program what the variable represents.
-
+]
 
 ---
 
@@ -892,7 +905,7 @@ Consider the following scenario: You have a variable called `weight` that you as
 --
 
 .w-100.lh-copy[
-In order to convert the data, you need to use the `as.datatype_name` function. As part of this function, you specify the data type you are converting to. The following table shows an example of the function:
+In order to convert the data, you need to use the `as.datatype_name` function. As part of this function, you specify the data type you are converting to. The following table shows examples of those functions:
 ]
 
 --
@@ -903,7 +916,7 @@ tibble::tribble(
        "numeric",   "as.numeric(variable_name)",
      "character", "as.character(variable_name)",
        "logical",   "as.logical(variable_name)",
-        "factor",    "as.factor(variable_name)"
+        "complex",    "as.complex(variable_name)"
   ) %>% kable()
 
 ```
@@ -960,16 +973,16 @@ class(smiling_face_new)
 ### The `NA` Result
 
 .w-100.lh-copy[
-If R cannot convert something, it will return an `NA` value. This is its way of saying that it tried to convert the value, but it couldn't find anything that would logically match with the conversion. The following scenarios will display the `NA` result:
+If R cannot convert an object, then it will return an `NA` (Not Available). This is its way of saying that it tried to convert the value, but it couldn't find anything that would logically match with the conversion. The following scenarios will return `NA` values:
 ]
 
 --
 
-- Converting mixed-characters with numbers, e.g. `"334cm"`
+- Converting mixed-characters to numeric, e.g. `"334cm"`
 
 --
 
-- Converting any text to logical, except `T` or `F`
+- Converting any character to logical, except `T` or `F`.
 
 --
 
@@ -983,9 +996,9 @@ as.numeric(`height`)
 
 .pull-left[
 ```{r}
-smiling_face <- F
+smiling_face <- "No"
 
-as.numeric(`smiling_face`)
+as.logical(`smiling_face`)
 ```
 ]
 
@@ -993,9 +1006,9 @@ as.numeric(`smiling_face`)
 
 .pull-right[
 ```{r}
-smiling_face <- T
+smiling_face <- "Yes"
 
-as.numeric(`smiling_face`)
+as.logical(`smiling_face`)
 ```
 ]
 ---
@@ -1005,10 +1018,14 @@ name: basic
 
 # Basic data structure in R
 
+```{r, echo=FALSE, out.height= "95%", out.width = "60%"}
+knitr::include_graphics("images/datatstruc.png")
+```
+
 ---
 class: middle 
 
-# Basic data structure or types
+# Basic data structure 
 
 --
 
@@ -1033,6 +1050,10 @@ name: vector
 
 # Vector
 
+```{r, echo=FALSE, out.height= "95%", out.width = "60%"}
+knitr::include_graphics("images/vector.png")
+```
+
 ---
 ## A vector
 
@@ -1055,7 +1076,7 @@ month <- c("January", "February",  "March", "April",  "May", "June", "July", "Au
 --
 
 ```{r}
-gender <- factor(c("Male", "Female", "Female", "Male", "Female"))
+gender <- c("Male", "Female", "Female", "Male", "Female", "Male")
 ```
 
 --
@@ -1066,6 +1087,130 @@ Adding a space after every comma in the `c()` function improves the readability 
 ]
 
 ---
+layout: true
+## A vector
+
+---
+.w-100.lh-copy[
+
+A vector can be of different data type such as `numeric`, `character`, `logical`, or `factor`.
+]
+
+--
+
+### Examples
+
+```{r}
+covid_confirmed <- c(31, 30, 37, 25, 33, 34, 26, 32, 23, 45)
+
+class(covid_confirmed)
+```
+--
+
+```{r}
+month <- c("January", "February",  "March", "April",  "May", "June", "July", "August", "September", "October")
+
+class(month)
+
+```
+---
+
+```{r}
+diabetic_status <- c(TRUE, FALSE, FALSE, TRUE, FALSE, TRUE)
+
+class(diabetic_status)
+```
+--
+
+```{r}
+complex_vector <- c(2+1i, 3-2i, 1+1i, 4 - 2i, 2i, 1-3i)
+
+class(complex_vector)
+```
+--
+
+.w-100.lh-copy[
+You can perform a lot of mathematical analysis with complex data type (`z`) by using some of the following functions:
+]
+
+--
+
+.pull-left[
+`Re(z)` - real part of a complex number
+
+`Im(z)` - imaginary part of a complex number
+
+`Mod(z)` - modulus of a complex number
+]
+
+--
+
+.pull-right[
+`Arg(z)` - argument of a complex number
+
+`Conj(z)` - conjugate of a complex number
+]
+
+---
+layout: false
+
+### A factor vector
+
+.w-100.lh-copy[
+A categorical variable where each level is a category will be of type `factor`. For example, gender is a categorical variable that has two levels, "Male" or "Female". We can easily get a factor vector from a character vector by using the function `factor()` or `as.factor()`.
+]
+--
+
+**Example 1**
+
+You can create a factor vector directly by using the function `factor()`:
+
+--
+
+```{r}
+gender_factor <- factor(c("Male", "Female", "Female", "Male", "Female"))
+
+gender_factor
+```
+--
+
+```{r}
+class(gender_factor)
+```
+--
+
+```{r}
+levels(gender_factor)
+```
+---
+
+**Example 2**
+
+.w-100.lh-copy[
+If you already have a `character vector`, then you can use `as.factor()` function to convert it to a `factor  vector`.
+]
+
+--
+
+```{r}
+gender <- c("Male", "Female", "Female", "Male", "Female")
+
+gender_factor = as.factor(gender)
+
+gender_factor
+```
+--
+
+```{r}
+class(gender_factor)
+```
+--
+
+```{r}
+levels(gender_factor)
+```
+---
+
 ## Length of a vector
 
 You can get the length of a vector by using the function `length()`:
@@ -1083,7 +1228,7 @@ length(month)
 ```
 
 ```{r}
-gender <- factor(c("Male", "Female", "Female", "Male", "Female"))
+gender <- c("Male", "Female", "Female", "Male", "Female", "Male")
 
 length(gender)
 ```

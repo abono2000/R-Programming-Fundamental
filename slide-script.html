@@ -3,7 +3,7 @@
   <head>
     <title>R Programming Fundamentals</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2021-06-03" />
+    <meta name="date" content="2021-06-08" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -12,7 +12,7 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x4765e59bc5f4cd5952218d0d2628f10","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x46742e3b3c34328baaa5991cac62e70","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -42,7 +42,6 @@
     <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
     <script src="libs/xaringanExtra-webcam/webcam.js"></script>
     <script id="xaringanExtra-webcam-options" type="application/json">{"width":"150","height":"150","margin":"1em"}</script>
-    <link href="libs/animate.css-xaringan/animate.fade.css" rel="stylesheet" />
     <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
@@ -57,11 +56,16 @@
 
 
 
+background-image: url(images/DSN.PNG), url(images/R_logo.png)
+background-position: 0% 100%, 100% 0%
+background-size: 40%, 10%
+
+
 class: title-page, center, middle
 
 ## R Programming Fundamentals
 
-### June 03, 2021
+
 
 ---
 
@@ -92,6 +96,7 @@ Goal:
 
 &gt; The goal of this R workshop is to help you learn the most important skills in R for data science.
 
+
 ]
 
 
@@ -109,7 +114,6 @@ class: center, top
 class: inverse, middle
 name: toc
 
-
 # Table of content
 
 .w-100.lh-copy[
@@ -125,11 +129,6 @@ name: toc
 - [Basic Data Structure in R](#basic)
 
 - [Write your own function in R](#function)
-]
-
-
-.footer[
-R code from throughout the slides is in the github repo [here](https://github.com/gbganalyst/R-Programming-Fundamental).
 ]
 
 ---
@@ -159,10 +158,23 @@ R is a programming language and free software environment for statistical
 computations, data cleaning, data analysis, and graphical representation of data. The R language is widely used among statisticians and data miners
 for developing statistical software and data analysis.
 ]
+
 --
 
 .w-100.lh-copy[
-In the year `2020`, the R community celebrated the 20th year of R version `1.0.0` and the current version of R programming is `4.0.5` (Shake and Throw).
+In the year `2020`, the R community celebrated the 20th year of R version `1.0.0`. The current version of R programming is `4.1.0` with the nickname *Camp Pontanezen*. 
+]
+
+--
+
+.w-100.lh-copy[
+
+R has released so many versions and you can see their list by using:
+
+
+```r
+rversions::r_versions()
+```
 ]
 
 ---
@@ -186,7 +198,7 @@ RStudio is an integrated development environment (IDE) for R programming. RStudi
 
 # RStudio
 
-The current version of RStudio is 1.4.1106
+The current version of RStudio is `1.4.1717`
 
 &lt;img src="images/R_studio.PNG" width="664" height="100%" /&gt;
 
@@ -207,13 +219,13 @@ You can install R on any operating system (OS).
 
 - Download R for Windows OS from this [link](https://cran.r-project.org/bin/windows/base/)
 
-- Open the downloaded `.exe` file and Install R
+- Open the `.exe` file and install it.
 
 **For Mac** :
 
-Download R for Mac via this [link](https://cran.r-project.org/bin/macosx/R-4.0.5.pkg)
+Download R for Mac via this [link](https://cran.r-project.org/bin/macosx/). Please make sure you click on the first `.pkg` link,
 
-- Open the downloaded `.pkg` file and Install R
+- Open the `.pkg` file and install it.
 
 **For Linux**:
 For complete R System installation in Linux, follow the instructions on this
@@ -225,8 +237,9 @@ For Ubuntu with Apt-get installed, execute `sudo apt-get install r-base` in the 
 
 .panel[.panel-name[Install RStudio]
 
-You can install RStudio via this [link](https://cran.r-project.org/) and choose the appropriate installer file for your operating system, download it, and then run it to install RStudio.
-
+.w-100.lh-copy[
+You can install **RStudio** via this [link](https://cran.r-project.org/), choose the appropriate installer file for your operating system, download it, and then run it to install **RStudio**.
+]
 ]
 ]
 
@@ -795,24 +808,32 @@ We can compare two or more values by using comparison operators. These types of 
 class: middle, center, inverse
 name: var
 
-## Atomic Data Type and Variable Assignment in R
+## Atomic Data Type in R
+
+
+&lt;img src="images/datatypes.png" width="100%" height="100%" /&gt;
+
 
 ---
 # Classes of objects in R
 
 .w-100.lh-copy[
-R works with numerous atomic classes of objects. Some of the most basic
+R works with numerous atomic classes of objects. The most basic
 atomic data types are:
 
-- Numeric such as integer (4, -2) or float (4.7)
+- `Numeric` such as integer (4, -2) or float (4.7, -0.26)
 
-- Character such as texts (or string) values e.g. "Nigeria", "Corona virus", "baby"
+- `Character` such as texts (or strings) and must be enclosed within either single or double quotes. e.g. "Nigeria", "COVID-19", "baby", "Hello world".
 
-- Logical such as `TRUE` or `FALSE`
+- `Logical` such as `TRUE` or `FALSE`
 
-- Factors - Categorical variable where each level is a category 
+- `Complex` - A complex number in mathematics. It is written as `a + bi` where `a` is the real part and `b` is the imaginary part. e.g. `2 + 2i`, `3 - 3i`.
+]
 
-We use `class()` function to check or determine the type of any object in R.
+--
+
+.w-100.lh-copy[
+We use `class()` function to check or determine the type of any object in `R`.
 ]
 
 ---
@@ -881,20 +902,19 @@ class(FALSE)
 
 
 ```r
-factor(c("Male", "Female", "Female", "Male", "Female"))
+class(2 + 2i)
 ```
 
 ```
-[1] Male   Female Female Male   Female
-Levels: Female Male
+[1] "complex"
 ```
 
 ```r
-class(factor(c("Male", "Female", "Female", "Male", "Female")))
+class(3 - 6i)
 ```
 
 ```
-[1] "factor"
+[1] "complex"
 ```
 
 ]
@@ -1040,12 +1060,14 @@ smile_face &lt;- TRUE
 
 ## Rules for naming variables
 
+.w-100.lh-copy[
+
 * All variables must begin with a letter of the alphabet.
 
 * After the initial letter, variable names can also contain (_ or .) and numbers. No spaces or special characters, however are allowed.
 
-* Uppercase characters are different from lowercase characters (in R and also in Python)
-
+* Uppercase characters are different from lowercase characters (in `R` and also in `Python`).
+]
 
 &lt;table&gt;
  &lt;thead&gt;
@@ -1077,8 +1099,9 @@ smile_face &lt;- TRUE
 
 --
 
+.w-100.lh-copy[
 The best naming convention is to choose a variable name that will tell the reader of the program what the variable represents.
-
+]
 
 ---
 
@@ -1134,7 +1157,7 @@ smile_face &lt;- "FALSE"
 
 
 
-<div class="countdown" id="timer_60b8b560" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf4001" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">00</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">42</span></code>
 </div>
 
@@ -1155,7 +1178,7 @@ Consider the following scenario: You have a variable called `weight` that you as
 --
 
 .w-100.lh-copy[
-In order to convert the data, you need to use the `as.datatype_name` function. As part of this function, you specify the data type you are converting to. The following table shows an example of the function:
+In order to convert the data, you need to use the `as.datatype_name` function. As part of this function, you specify the data type you are converting to. The following table shows examples of those functions:
 ]
 
 --
@@ -1181,8 +1204,8 @@ In order to convert the data, you need to use the `as.datatype_name` function. A
    &lt;td style="text-align:left;"&gt; as.logical(variable_name) &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; factor &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; as.factor(variable_name) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; complex &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; as.complex(variable_name) &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1278,16 +1301,16 @@ class(smiling_face_new)
 ### The `NA` Result
 
 .w-100.lh-copy[
-If R cannot convert something, it will return an `NA` value. This is its way of saying that it tried to convert the value, but it couldn't find anything that would logically match with the conversion. The following scenarios will display the `NA` result:
+If R cannot convert an object, then it will return an `NA` (Not Available). This is its way of saying that it tried to convert the value, but it couldn't find anything that would logically match with the conversion. The following scenarios will return `NA` values:
 ]
 
 --
 
-- Converting mixed-characters with numbers, e.g. `"334cm"`
+- Converting mixed-characters to numeric, e.g. `"334cm"`
 
 --
 
-- Converting any text to logical, except `T` or `F`
+- Converting any character to logical, except `T` or `F`.
 
 --
 
@@ -1307,13 +1330,13 @@ as.numeric(`height`)
 .pull-left[
 
 ```r
-smiling_face &lt;- F
+smiling_face &lt;- "No"
 
-as.numeric(`smiling_face`)
+as.logical(`smiling_face`)
 ```
 
 ```
-[1] 0
+[1] NA
 ```
 ]
 
@@ -1322,13 +1345,13 @@ as.numeric(`smiling_face`)
 .pull-right[
 
 ```r
-smiling_face &lt;- T
+smiling_face &lt;- "Yes"
 
-as.numeric(`smiling_face`)
+as.logical(`smiling_face`)
 ```
 
 ```
-[1] 1
+[1] NA
 ```
 ]
 ---
@@ -1338,10 +1361,12 @@ name: basic
 
 # Basic data structure in R
 
+&lt;img src="images/datatstruc.png" width="60%" height="95%" /&gt;
+
 ---
 class: middle 
 
-# Basic data structure or types
+# Basic data structure 
 
 --
 
@@ -1365,6 +1390,8 @@ class: middle, center, inverse
 name: vector
 
 # Vector
+
+&lt;img src="images/vector.png" width="60%" height="95%" /&gt;
 
 ---
 ## A vector
@@ -1391,7 +1418,7 @@ month &lt;- c("January", "February", "March", "April", "May", "June", "July", "A
 
 
 ```r
-gender &lt;- factor(c("Male", "Female", "Female", "Male", "Female"))
+gender &lt;- c("Male", "Female", "Female", "Male", "Female", "Male")
 ```
 
 --
@@ -1402,6 +1429,181 @@ Adding a space after every comma in the `c()` function improves the readability 
 ]
 
 ---
+layout: true
+## A vector
+
+---
+.w-100.lh-copy[
+
+A vector can be of different data type such as `numeric`, `character`, `logical`, or `factor`.
+]
+
+--
+
+### Examples
+
+
+```r
+covid_confirmed &lt;- c(31, 30, 37, 25, 33, 34, 26, 32, 23, 45)
+
+class(covid_confirmed)
+```
+
+```
+[1] "numeric"
+```
+--
+
+
+```r
+month &lt;- c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October")
+
+class(month)
+```
+
+```
+[1] "character"
+```
+---
+
+
+```r
+diabetic_status &lt;- c(TRUE, FALSE, FALSE, TRUE, FALSE, TRUE)
+
+class(diabetic_status)
+```
+
+```
+[1] "logical"
+```
+--
+
+
+```r
+complex_vector &lt;- c(2 + 1i, 3 - 2i, 1 + 1i, 4 - 2i, 2i, 1 - 3i)
+
+class(complex_vector)
+```
+
+```
+[1] "complex"
+```
+--
+
+.w-100.lh-copy[
+You can perform a lot of mathematical analysis with complex data type (`z`) by using some of the following functions:
+]
+
+--
+
+.pull-left[
+`Re(z)` - real part of a complex number
+
+`Im(z)` - imaginary part of a complex number
+
+`Mod(z)` - modulus of a complex number
+]
+
+--
+
+.pull-right[
+`Arg(z)` - argument of a complex number
+
+`Conj(z)` - conjugate of a complex number
+]
+
+---
+layout: false
+
+### A factor vector
+
+.w-100.lh-copy[
+A categorical variable where each level is a category will be of type `factor`. For example, gender is a categorical variable that has two levels, "Male" or "Female". We can easily get a factor vector from a character vector by using the function `factor()` or `as.factor()`.
+]
+--
+
+**Example 1**
+
+You can create a factor vector directly by using the function `factor()`:
+
+--
+
+
+```r
+gender_factor &lt;- factor(c("Male", "Female", "Female", "Male", "Female"))
+
+gender_factor
+```
+
+```
+[1] Male   Female Female Male   Female
+Levels: Female Male
+```
+--
+
+
+```r
+class(gender_factor)
+```
+
+```
+[1] "factor"
+```
+--
+
+
+```r
+levels(gender_factor)
+```
+
+```
+[1] "Female" "Male"  
+```
+---
+
+**Example 2**
+
+.w-100.lh-copy[
+If you already have a `character vector`, then you can use `as.factor()` function to convert it to a `factor  vector`.
+]
+
+--
+
+
+```r
+gender &lt;- c("Male", "Female", "Female", "Male", "Female")
+
+gender_factor &lt;- as.factor(gender)
+
+gender_factor
+```
+
+```
+[1] Male   Female Female Male   Female
+Levels: Female Male
+```
+--
+
+
+```r
+class(gender_factor)
+```
+
+```
+[1] "factor"
+```
+--
+
+
+```r
+levels(gender_factor)
+```
+
+```
+[1] "Female" "Male"  
+```
+---
+
 ## Length of a vector
 
 You can get the length of a vector by using the function `length()`:
@@ -1430,13 +1632,13 @@ length(month)
 
 
 ```r
-gender &lt;- factor(c("Male", "Female", "Female", "Male", "Female"))
+gender &lt;- c("Male", "Female", "Female", "Male", "Female", "Male")
 
 length(gender)
 ```
 
 ```
-[1] 5
+[1] 6
 ```
 
 ---
@@ -1581,7 +1783,7 @@ How can we access `Monday` and `Thursday` from the vector, `week_day`?
  
 ]
 
-<div class="countdown" id="timer_60b8b65a" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf3e95" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1614,7 +1816,7 @@ Data relating to the marks of 13 students in the Introduction to R quiz are givi
  
 ]
 
-<div class="countdown" id="timer_60b8b616" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf3f7c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1629,7 +1831,7 @@ marks &lt;- c(10, 15, 10, 9, 18, 16, 14, 12, 16, 13, 15, 20, 17)
 marks[marks &gt; 13]
 ```
 
-<div class="countdown" id="timer_60b8b455" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf3e7b" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1837,7 +2039,7 @@ rep(1:4, 1:4)
 rep(1:4, c(4, 1, 8, 2))
 ```
 
-<div class="countdown" id="timer_60b8b82c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf3fc2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -1878,7 +2080,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Grape"  "Banana" "Pawpaw" "Orange"
+[1] "Pineapples" "Apple"      "Orange"     "Pawpaw"    
 ```
 --
 
@@ -1892,7 +2094,7 @@ sample(x = fruit, size = 4)
 ```
 
 ```
-[1] "Pawpaw" "Grape"  "Orange" "Apple" 
+[1] "Apple"      "Pineapples" "Cherry"     "Banana"    
 ```
 ---
 
@@ -1984,7 +2186,7 @@ Use R to draw 10 random coins from the chest.
 
 ]
 
-<div class="countdown" id="timer_60b8b4cc" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf3e92" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -2067,7 +2269,7 @@ poisson_data
 hist(poisson_data)
 ```
 
-![](slide-script_files/figure-html/unnamed-chunk-111-1.png)&lt;!-- --&gt;
+![](slide-script_files/figure-html/unnamed-chunk-125-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -2126,7 +2328,7 @@ normal_data
 hist(normal_data)
 ```
 
-![](slide-script_files/figure-html/unnamed-chunk-113-1.png)&lt;!-- --&gt;
+![](slide-script_files/figure-html/unnamed-chunk-127-1.png)&lt;!-- --&gt;
 
 ---
 layout: false
@@ -2156,7 +2358,7 @@ layout: false
    
    Generate 50 observations for both `height` and `weight`.
   
-  <div class="countdown" id="timer_60b8b75d" style="right:0;bottom:0;" data-warnwhen="60">
+  <div class="countdown" id="timer_60bf3fe2" style="right:0;bottom:0;" data-warnwhen="60">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2280,7 +2482,7 @@ Create the matrix `A` with R:
 ]
 
 
-<div class="countdown" id="timer_60b8b68f" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf4215" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2410,7 +2612,7 @@ How would you select the following matrices from A?
 ]
 
 
-<div class="countdown" id="timer_60b8b54f" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf403c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -2679,7 +2881,7 @@ Create a data frame for the following data:
 7   &lt;NA&gt;     NA    100
 ```
 
-<div class="countdown" id="timer_60b8b4c9" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf41ca" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 .can-edit[
@@ -2797,6 +2999,8 @@ That is, it opens a new tab in the RStudio to display the entire data frame in a
 
 
 ---
+background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
+---
 layout: false
 
 ### Example
@@ -2912,8 +3116,6 @@ dim(medical_data)
 View(medical_data)
 ```
 &lt;img src="images/view.png" width="60%" height="95%" /&gt;
----
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 ---
 layout: false
 
@@ -3998,9 +4200,7 @@ list_example$unit_mat
 ```r
 list_example &lt;- list(
   age = c(18, 21, 33, 25, 19),
-
   unit_mat = matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2),
-
   iris_data = iris
 )
 ```
@@ -4012,7 +4212,7 @@ How would you extract the component `iris_data` from the `list_example`?
 ]
 
 
-<div class="countdown" id="timer_60b8b4c1" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf4006" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -4352,7 +4552,7 @@ Use your function to convert the following `Celsius` to `Fahrenheit`:
 -	120
 
 
-<div class="countdown" id="timer_60b8b4f3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_60bf3e99" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
