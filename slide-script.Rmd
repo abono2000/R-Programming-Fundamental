@@ -51,7 +51,8 @@ use_webcam(width = 150, height = 150)
 
 use_extra_styles()
 ```
-background-image: url(images/DSN.PNG), url(images/R_logo.png)
+
+background-image: url(images/gbg.jpg), url(images/R_logo.png)
 background-position: 0% 100%, 100% 0%
 background-size: 40%, 10%
 
@@ -61,8 +62,8 @@ class: title-page, center, middle
 
 ```{r, echo=FALSE}
 use_logo(
-  image_url = "images/logo.png",
-  link_url = "http://www.datasciencenigeria.org",
+  image_url = "images/gbg.jpg",
+  link_url = "https://bit.ly/gbganalyst",
   position = xaringanExtra::css_position(top = "1em", right = "1em"),
   exclude_class = c("title-page", "inverse", "hide_logo")
 )
@@ -79,12 +80,44 @@ class: about-me-slide, inverse, middle, center
 
 #### Data Scientist, Statistician
 
-.fade[Data Science Nigeria<br>Lagos, Nigeria]
+.fade[Virus Outbreak Data Network (VODAN Africa & Asia)<br> Nigeria Chapter]
 
 
 [`r icons::fontawesome("link")` https://bit.ly/gbganalyst](https://bit.ly/gbganalyst)
 [`r icons::fontawesome("twitter")` @gbganalyst](https://twitter.com/gbganalyst)
 [`r icons::icon_style(icons::fontawesome("github"), scale = 1)` @gbganalyst](https://github.com/gbganalyst)
+
+---
+class: about-me-slide, inverse, middle, center
+
+## About the trainer
+
+<img style="border-radius: 80%;" src="images/abono.jpg" width="180px"/>
+
+### Olanrewaju Ahmed Babajide
+
+#### Principal System Analyst, Data Scientist
+
+.fade[University of Ibadan<br>Oyo, Nigeria]
+
+[`r icons::fontawesome("link")` https://ui.edu.ng/ABOlanrewaju](https://ui.edu.ng/ABOlanrewaju)
+[`r icons::fontawesome("twitter")` @abono2000](https://twitter.com/abono2000)
+[`r icons::icon_style(icons::fontawesome("github"), scale = 1)` @abono2000](https://github.com/abono2000)
+
+---
+class: about-me-slide, inverse, middle, center
+
+## About the trainer
+
+<img style="border-radius: 80%;" src="images/prof_kay.jpeg" width="180px"/>
+
+### Ogunyemi Olakunle Joshua
+
+#### Data Scientist
+
+.fade[TAG NG<br>Lagos, Nigeria]
+
+[`r icons::fontawesome("twitter")` @olakunle4impact](https://twitter.com/olakunle4impact)
 
 
 ---
@@ -174,6 +207,16 @@ R has released so many versions and you can see their list by using:
 rversions::r_versions()
 ```
 ]
+
+--
+Please note that you will need to install `rversions` package before `rversions::r_versions()` can work.
+
+---
+## Why R programming?
+
+```{r, echo=FALSE, out.height= "100%"}
+include_graphics("images/learnr.png")
+```
 
 ---
 background-image:url(images/R.PNG)
@@ -311,15 +354,23 @@ You can learn R through the following useful selected materials:
 
 # Introduction to R
 .w-100.lh-copy[
-In this section, you will take your first steps with R. You will learn how to use the console as a calculator and how to assign variables. You will also
-get to know the basic data types in R. 
+In this section, you will take your first steps with R. You will learn how 
+to navigate through the four windows in Rstudio, use R as a calculator and  assign values to variables. You will also get to know the basic data types in R. 
 ]
 
 --
 
 ![](https://media3.giphy.com/media/26h0poAzDM5h8gHWE/giphy.gif)  
 
+---
+## The four panes of RStudio
 
+```{r, echo=FALSE}
+include_graphics("images/RStudio.png")
+```
+--
+
+**Let's open our RStudio!**
 ---
 
 class: center, middle, inverse
@@ -420,19 +471,14 @@ following arithmetic operations:
 
 ```{r}
 3^2
-```
-```{r}
+
 2 * 2^3
-```
 
-```{r}
+
 2 ^ 3 - 9
-```
-```{r}
-2 - 2 ^ 3
-```
 
-```{r}
+2 - 2 ^ 3
+
 3^2 - 1 * 4 + 2
 ```
 
@@ -540,7 +586,7 @@ R makes use of the **#** sign to add comments. Adding comment to your code is a 
 
 1.	It makes you remember a line of code you have written after leaving it for a while.
 
-2.	It makes other who want to check your code to understand it line by line.
+2.	It makes others who want to check your code to understand it line by line.
 
 3.	It is good for documentation purpose.
 
@@ -572,7 +618,7 @@ It is important to put a space after the **#** for easy readability.
 # Comparison Operators
 
 .w-100.lh-copy[
-We can compare two or more values by using comparison operators. These types of operators compare one value to another based on a condition. The result can either be `TRUE` or `FALSE` known as logical. The following are the most common comparison operators in R:
+We can compare two or more values by using comparison operators. These types of operators compare one value to another based on a condition. The result can either be `TRUE` or `FALSE`, known as logical. The following are the most common comparison operators in R:
 ]
 
 --
@@ -679,13 +725,9 @@ class(2)
 
 ```{r}
 class(3.145)
-```
 
-```{r}
 class("female")
-```
 
-```{r}
 class("I am from Abuja")
 ```
 ]
@@ -694,19 +736,16 @@ class("I am from Abuja")
 
 ```{r}
 class(TRUE)
-```
 
-```{r}
 class(FALSE)
-```
 
-```{r}
 class(2+2i)
 
 class(3-6i)
 ```
 
 ]
+
 ---
 
 ### Variable assignment
@@ -813,7 +852,7 @@ smile_face = TRUE
 
 * After the initial letter, variable names can also contain (_ or .) and numbers. No spaces or special characters, however are allowed.
 
-* Uppercase characters are different from lowercase characters (in `R` and also in `Python`).
+* R is case sensitive. Uppercase characters are different from lowercase characters.
 ]
 
 ```{r, echo=FALSE}
@@ -2599,6 +2638,7 @@ airquality$Ozone[1:5]
 
 
 ---
+
 ### Select the first row and all columns of the dataset
 
 ```{r}
@@ -2623,23 +2663,30 @@ head(airquality, 6)
 
 ---
 layout: true
-## Missing values in a data frame
+
+## Missing values 
 
 ---
 .w-100.lh-copy[
-R programming indicates any missing value in a data frame with `NA` and to check whether a data frame has a missing value in any of its columns, we use the command `anyNA()`.
+When there is a missing value in any object, R indicates such as `NA`. In real datasets, `NA` values turn up all the time. The command `anyNA()` returns `TRUE` if there is any presence of `NA` and `FALSE` if otherwise.
 ]
 
 --
 
-### Example 1
+**Examples**
 
 ```{r}
-anyNA(airquality)
+gender <- c("Female", "Male", NA, "Male", NA, "Female")
+
+anyNA(gender)
 ```
 --
 
-### Example 2
+```{r}
+mat <- matrix(c(2, 3, 1, 1, NA, 0), nrow = 2, ncol = 3, byrow = TRUE)
+
+anyNA(mat)
+```
 
 ```{r}
 anyNA(iris)
@@ -2648,26 +2695,88 @@ anyNA(iris)
 ---
 
 .w-100.lh-copy[
-To get the total number of missing values in a data frame, we use the command `sum(is.na(dataframe))`
-where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the data frame.]
+To get the total number of missing values in a data frame, we shall use the command `sum(is.na(dataframe))`
+where `is.na(dataframe)` create a logical value `TRUE/FALSE` where there is a presence/absence of a missing value in each column of the data frame.
+]
 
 --
+.pull-left[
 
 #### Example 1
 
 ```{r}
 sum(is.na(airquality))
 ```
+]
+
 --
 
+.pull-right[
 #### Example 2
 
 ```{r}
 sum(is.na(iris))
 ```
+]
+
+--
+.w-100.lh-copy[
+The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the data frame. Please make sure you install `inspectdf` package.
+]
+
+
+
+---
+.w-100.lh-copy[
+When there is a presence of `NA` in the data, most descriptive statistics functions such as `min()`, `max()`, `mean()`, and `sd()` will return `NA`.
+]
+
 --
 
-The `inspectdf::inspect_na(dataframe_name)` will help you get the number of missing values in each of the columns of the data frame. Please make sure you install `inspectdf` package.
+### Examples
+
+```{r}
+covid_confirmed <-  c(2, 3, 1, 1, NA, 3)
+```
+--
+
+```{r}
+min(covid_confirmed)
+```
+--
+
+```{r}
+sum(covid_confirmed)
+```
+
+--
+
+```{r}
+mean(covid_confirmed)
+```
+
+---
+.w-100.lh-copy[
+To tell a descriptive statistic function to ignore missing (`NA`) values, you will include the argument `na.rm = TRUE` in the function. This argument explicitly tells the function to ignore `NA` values before it can work.
+]
+
+--
+
+### Examples
+
+```{r}
+covid_confirmed <-  c(2, 3, 1, 1, NA, 3)
+```
+
+--
+
+```{r}
+min(covid_confirmed, na.rm = TRUE)
+
+sum(covid_confirmed, na.rm = TRUE)
+
+mean(covid_confirmed, na.rm = TRUE)
+```
 
 ---
 class: center, middle, inverse
@@ -2820,6 +2929,8 @@ iris_data = iris
 )
 
 ```
+
+
 How would you extract the component `iris_data` from the `list_example`?
 
 
@@ -2864,7 +2975,8 @@ Functions usually take in some sort of data structure (`value`, `vector`, `dataf
 ## Types of Functions
 
 .w-100.lh-copy[
-Function extends the functionality of **R**. Basically, we can categorize functions into the following two types:]
+Function extends the functionality of **R**. Basically, we can categorize functions into the following two types:
+]
 
 
 --
@@ -2875,15 +2987,15 @@ include_graphics("images/fun1.png")
 
 --
 
-- **Built-in functions** - Functions that are pre-defined in R
+- **Built-in functions**: Functions that are pre-defined in R
 
 --
 
-- **User-defined functions** - Functions defined by the users themselves
+- **User-defined functions**: Functions defined by the users themselves
 
 ---
 
-### Advantages of R Functions
+### Advantages of user-defined functions
 
 --
 
@@ -2904,6 +3016,7 @@ Function allows us to automate repetitive tasks in a more powerful way than copy
 ### When should you write a function?
 
 --
+
 .w-100.lh-copy[
 You should consider writing a function whenever you have copied and pasted a block of code more than two times.
 ]
@@ -3161,6 +3274,7 @@ In this tutorial, you have learnt that:
 7. Built-in functions also known as base functions includes `print()`, `getwd()`, and `cat()`.
 ]
 ]
+
 ---
 class: center, middle, inverse
 
